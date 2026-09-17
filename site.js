@@ -33,20 +33,10 @@
   }
 
   const sticky = document.querySelector('#sticky-cta');
-  const consultation = document.querySelector('#consultation');
-  const hero = document.querySelector('.hero');
-  if (sticky && consultation && hero && 'IntersectionObserver' in window) {
-    let heroVisible = true;
-    let consultationVisible = false;
-    const update = () => sticky.classList.toggle('is-hidden', heroVisible || consultationVisible);
+  if (sticky && form) {
+    const update = () => sticky.classList.toggle('is-hidden', form.getBoundingClientRect().bottom > 0);
     update();
-    new IntersectionObserver(([entry]) => {
-      heroVisible = entry.isIntersecting;
-      update();
-    }, { threshold: 0.08 }).observe(hero);
-    new IntersectionObserver(([entry]) => {
-      consultationVisible = entry.isIntersecting;
-      update();
-    }, { threshold: 0.12 }).observe(consultation);
+    window.addEventListener('scroll', update, { passive: true });
+    window.addEventListener('resize', update);
   }
 })();

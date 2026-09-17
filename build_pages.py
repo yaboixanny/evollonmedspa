@@ -96,7 +96,7 @@ def render(key, d):
   </main>
   <footer><div class="wrap footer-inner"><div><span class="wordmark">EVOLLON <small>MED SPA &amp; WELLNESS</small></span><p>105-09 Metropolitan Ave, Ste 2, Forest Hills, NY 11375</p></div></div><div class="wrap footer-bottom">© Evollon Med Spa &amp; Wellness. Treatment suitability and results vary. Consultation information does not replace medical advice.</div></footer>
   <dialog class="thanks-dialog" id="thanks-dialog" aria-labelledby="thanks-title"><h2 id="thanks-title">Thanks. We'll be in touch with you shortly.</h2><button class="button button-primary" id="thanks-close" type="button">Close</button></dialog>
-  <div class="sticky-cta" id="sticky-cta">{'<a class="sticky-offer" href="#consultation"><b>Get $100 OFF Botox</b><small>Only For the Month of ' + CURRENT_MONTH + '</small></a>' if key == 'botox' else '<a class="sticky-offer" href="#consultation"><b>Get $125 OFF Lip Filler</b><small>New clients only · Ends September 30</small></a>'}</div>
+  <div class="sticky-cta is-hidden" id="sticky-cta">{'<a class="sticky-offer" href="#lead-form"><b>Get $100 OFF Botox</b><small>Only For the Month of ' + CURRENT_MONTH + '</small></a>' if key == 'botox' else '<a class="sticky-offer" href="#lead-form"><b>Get $125 OFF Lip Filler</b><small>New clients only · Ends September 30</small></a>'}</div>
 </body>
 </html>'''
 
