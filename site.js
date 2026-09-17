@@ -33,8 +33,12 @@
   }
 
   const sticky = document.querySelector('#sticky-cta');
-  if (sticky && form) {
-    const update = () => sticky.classList.toggle('is-hidden', form.getBoundingClientRect().bottom > 0);
+  const experienceLabel = document.querySelector('.trust-heading .eyebrow');
+  if (sticky && experienceLabel) {
+    const update = () => sticky.classList.toggle(
+      'is-hidden',
+      experienceLabel.getBoundingClientRect().top > window.innerHeight,
+    );
     update();
     window.addEventListener('scroll', update, { passive: true });
     window.addEventListener('resize', update);
