@@ -3,7 +3,7 @@
 - `index.html` is the Botox page.
 - `lip-filler.html` is the lip filler page.
 
-Both pages use `styles.css` and `site.js`. The forms send visitor details to `info@evollon.com` through FormSubmit and show a thank-you dialog after the service accepts the submission. The inbox owner must confirm FormSubmit's activation email before submissions are delivered. FormSubmit requires the pages to be served over HTTP(S); opening the HTML files directly will not submit the forms. There is no booking or payment backend connected.
+Both pages use `styles.css` and `site.js`. The forms use Netlify Forms and show a thank-you dialog after a successful submission. Enable form detection in Netlify and redeploy. Submissions appear in the Netlify dashboard; to receive emails, configure Forms → Submission notifications. Forms only submit on the deployed site, not when the HTML files are opened directly from disk. There is no booking or payment backend connected.
 
 ## Add offer pricing
 
