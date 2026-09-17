@@ -89,6 +89,10 @@ footer{background:var(--cream);color:var(--ink);padding:24px 16px 100px;text-ali
 .sticky-cta .sticky-offer{display:block;width:100%;max-width:760px;margin:0 auto;background:var(--rose-dark);color:#fff;border-radius:28px;padding:10px 18px;text-align:center;text-decoration:none;line-height:1.2}
 .sticky-offer b,.sticky-offer small{display:block}.sticky-offer b{font-size:16px;font-weight:700}.sticky-offer small{font-size:11px;font-weight:400;margin-top:3px}
 .sticky-cta.is-hidden{display:none}
+.thanks-dialog{width:min(420px,calc(100% - 32px));border:1px solid var(--line);border-radius:18px;padding:32px;text-align:center;box-shadow:0 18px 65px #11182733;color:var(--ink);font-family:var(--sans)}
+.thanks-dialog::backdrop{background:#11182799}
+.thanks-dialog h2{font-size:23px;line-height:1.3;margin:0 0 24px}
+.thanks-dialog .button{min-width:140px;background:var(--rose-dark)}
 @media(max-width:700px){.announcement{font-size:12px}.site-header{padding:15px 16px}.hero-copy{padding:27px 0 17px}.hero h1{font-size:clamp(31px,8vw,40px)}.hero .intro{font-size:15px}.check-list{font-size:15px}.hero-actions{flex-direction:column;align-items:center}.content-section{padding-top:14px}.steps{grid-template-columns:1fr}.form-card{padding:20px}.other-treatment{flex-direction:column;align-items:center}.sticky-cta{justify-content:space-between;font-size:12px}.sticky-cta span{max-width:55%}}
 
 /* Larger, screenshot-inspired hero while keeping Evollon's current offer neutral. */

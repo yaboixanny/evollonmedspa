@@ -3,7 +3,7 @@
 - `index.html` is the Botox page.
 - `lip-filler.html` is the lip filler page.
 
-Both pages use `styles.css` and `site.js`. The pages use the image-free, centered funnel layout of the supplied reference. The form opens a prefilled SMS draft to **(347) 740-9508**; visitors must send the text themselves. There is no booking, payment, or lead storage backend connected.
+Both pages use `styles.css` and `site.js`. The forms send visitor details to `info@evollon.com` through FormSubmit and show a thank-you dialog after the service accepts the submission. The inbox owner must confirm FormSubmit's activation email before submissions are delivered. FormSubmit requires the pages to be served over HTTP(S); opening the HTML files directly will not submit the forms. There is no booking or payment backend connected.
 
 ## Add offer pricing
 
