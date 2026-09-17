@@ -1,4 +1,4 @@
-"""Build the two static Evollon treatment pages. Edit OFFERS to add pricing later."""
+"""Build the two static Evollon treatment pages. Edit OFFERS to change pricing."""
 
 from html import escape
 from pathlib import Path
@@ -12,7 +12,7 @@ OFFERS = {
         "name": "Botox",
         "eyebrow": "A more rested look, still entirely you",
         "headline": "Get Our <em>Botox Beauty Package</em> With <em>$100 Off</em> This Month!",
-        "intro": "Our package includes 20 units of Botox + a personalized treatment plan with our specialist, with $100 off this month.",
+        "intro": "Your first 30 units of Botox are $249 this month, with the $100 discount already applied. The package also includes a personalized treatment plan with our specialist.",
         "bullets": ["Personalized consultation and treatment plan", "Designed to soften fine lines, wrinkles, and expression lines", "No downtime, non-invasive treatment, and no surgery", "Convenient Forest Hills, Queens location"],
         "description": "Botox is an injectable treatment that temporarily relaxes certain facial muscles. During your consultation, you can discuss the areas that concern you, your health history, and whether treatment is appropriate for you.",
         "benefits": [
@@ -24,7 +24,7 @@ OFFERS = {
             ("What can Botox help with?", "Botox can help soften some facial lines and wrinkles for a limited time. At your visit, your provider will talk with you about the areas you want to treat."),
             ("Will I still look like myself?", "That is up to you and your provider. Tell them how much movement you want to keep. Your results may be different from someone else’s."),
             ("Is there downtime or any risk?", "Many people return to their usual day soon after treatment. You may have redness, swelling, or bruising where you were treated. Botox also has important risks. Your provider will review them with you before treatment."),
-            ("How much does it cost?", "We are offering $100 off Botox this month. Ask your provider about the full cost and the plan that fits your goals."),
+            ("How much does it cost?", "Your first 30 units of Botox are $249 this month. This price includes the $100 discount. Ask your provider about the cost of any extra units before treatment."),
         ],
     },
     "lip-filler": {

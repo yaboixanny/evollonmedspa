@@ -12,7 +12,8 @@
       const name = String(data.get('name') || '').trim();
       const email = String(data.get('email') || '').trim();
       const phone = String(data.get('phone') || '').trim();
-      const message = `Hi Evollon, I'd like to ask about ${treatment}. My name is ${name}. My phone is ${phone} and my email is ${email}. Please contact me about a consultation and current pricing.`;
+      const offer = treatment === 'Botox' ? 'the first 30 units for $249 with $100 off this month' : 'the current lip filler offer';
+      const message = `Hi Evollon, I'd like to ask about ${offer}. My name is ${name}. My phone is ${phone} and my email is ${email}. Please contact me about a consultation.`;
       const smsUrl = `sms:+${number}?body=${encodeURIComponent(message)}`;
 
       result.hidden = false;
@@ -21,7 +22,7 @@
       const textLink = document.createElement('a');
       textLink.href = smsUrl;
       textLink.textContent = 'tap here to open the text';
-      result.append('. Your request is sent only after you send the message.');
+      result.append(textLink, '. Your request is sent only after you send the message.');
       window.location.href = smsUrl;
     });
   }

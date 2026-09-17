@@ -13,7 +13,7 @@ Edit the relevant treatment in `OFFERS` inside `build_pages.py`, including the p
 python3 build_pages.py
 ```
 
-The current pages intentionally say “Offer details coming soon.” Keep pricing, quantities, deadlines, and guarantees off the page until they are confirmed by Evollon.
+The Botox page currently shows $249 for the first 30 units, with $100 off already applied. The Lip Filler page shows a $100 discount without a final package price.
 
 ## Preview locally
 
