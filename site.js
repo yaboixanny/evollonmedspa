@@ -12,7 +12,7 @@
       const name = String(data.get('name') || '').trim();
       const email = String(data.get('email') || '').trim();
       const phone = String(data.get('phone') || '').trim();
-      const offer = treatment === 'Botox' ? 'the first 30 units for $249 with $100 off this month' : 'the current lip filler offer';
+      const offer = treatment === 'Botox' ? 'the first 30 units for $249 with $100 off this month' : 'the $375 full lip enhancement offer ($125 off) for new clients ending September 30';
       const message = `Hi Evollon, I'd like to ask about ${offer}. My name is ${name}. My phone is ${phone} and my email is ${email}. Please contact me about a consultation.`;
       const smsUrl = `sms:+${number}?body=${encodeURIComponent(message)}`;
 

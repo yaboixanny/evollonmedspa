@@ -31,9 +31,9 @@ OFFERS = {
         "file": "lip-filler.html",
         "name": "Lip Filler",
         "eyebrow": "Shape and definition, on your terms",
-        "headline": "Get Our <em>Lip Filler Package</em> With <em>$100 Off</em> This Month!",
-        "intro": "Our package includes a personalized lip filler plan with our specialist, with $100 off this month.",
-        "bullets": ["Personalized consultation and treatment plan", "Designed to add subtle lip shape, balance, and fullness", "A non-surgical treatment with simple aftercare", "Convenient Forest Hills, Queens location"],
+        "headline": "Get Our <em>Lip Filler Package</em> With <em>$125 Off</em> This Month!",
+        "intro": "Full lip enhancement for $375 (normally $500)—save $125. We focus on natural shape and definition for a refined, balanced look.",
+        "bullets": ["Personalized consultation and treatment plan", "Natural shape and definition—refined, never exaggerated", "Professional injectors and careful technique", "New clients only · Offer ends September 30"],
         "description": "Lip filler is an injectable treatment used to add fullness or definition to the lips. Your consultation is the time to talk through the look you want, the product your provider recommends, and the benefits and risks.",
         "benefits": [
             ("01", "Bring your inspiration", "Talk about the shape, definition, or volume you have in mind."),
@@ -44,7 +44,7 @@ OFFERS = {
             ("What does lip filler do?", "Lip filler can add shape or fullness to your lips. Your provider can explain which option may fit your goals."),
             ("Can the result look natural?", "Yes. You can ask for a soft, natural look. Talk with your provider about the shape and amount of fullness you want."),
             ("What should I expect afterward?", "Your lips may feel tender, swollen, or bruised after treatment. These effects often improve in a few days or weeks. There are also rare but serious risks. Your provider will explain them before treatment."),
-            ("How much does it cost?", "We are offering $100 off lip filler this month. Ask your provider about the full cost and the plan that fits your goals."),
+            ("How much does it cost?", "Full lip enhancement is $375, down from $500. You save $125. This offer is for new clients and ends September 30."),
         ],
     },
 }
@@ -70,7 +70,7 @@ def render(key, d):
   <script src="site.js" defer></script>
 </head>
 <body data-treatment="{escape(key)}">
-  <div class="announcement">{'$100 OFF Botox This Month' if key == 'botox' else '$100 OFF Lip Filler This Month'}</div>
+  <div class="announcement">{'$100 OFF Botox This Month' if key == 'botox' else '$125 OFF Lip Filler This Month'}</div>
   <header class="site-header wrap">
     <div class="wordmark">Evollon Med Spa &amp; Wellness</div>
     <div class="header-address">105-09 Metropolitan Ave, Ste 2, Forest Hills, NY 11375</div>
@@ -95,7 +95,7 @@ def render(key, d):
     <section class="visit-section"><div class="wrap visit-grid"><div><div class="eyebrow">COME SEE US</div><h2>Close to home. <em>Here for you.</em></h2><p>Evollon Med Spa &amp; Wellness<br>105-09 Metropolitan Ave, Ste 2<br>Forest Hills, NY 11375</p><a class="button button-outline" href="https://www.google.com/maps/search/?api=1&amp;query=105-09+Metropolitan+Ave+Ste+2+Forest+Hills+NY+11375" target="_blank" rel="noopener">Get directions <span aria-hidden="true">↗</span></a></div><div class="map-frame"><iframe title="Map to Evollon Med Spa in Forest Hills" src="https://www.google.com/maps?q=105-09%20Metropolitan%20Ave%20Ste%202%2C%20Forest%20Hills%2C%20NY%2011375&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div></div></section>
   </main>
   <footer><div class="wrap footer-inner"><div><span class="wordmark">EVOLLON <small>MED SPA &amp; WELLNESS</small></span><p>105-09 Metropolitan Ave, Ste 2, Forest Hills, NY 11375</p></div></div><div class="wrap footer-bottom">© Evollon Med Spa &amp; Wellness. Treatment suitability and results vary. Consultation information does not replace medical advice.</div></footer>
-  <div class="sticky-cta" id="sticky-cta">{'<a class="sticky-offer" href="#consultation"><b>Get $100 OFF Botox</b><small>Only For the Month of ' + CURRENT_MONTH + '</small></a>' if key == 'botox' else '<a class="sticky-offer" href="#consultation"><b>Get $100 OFF Lip Filler</b><small>Only For the Month of ' + CURRENT_MONTH + '</small></a>'}</div>
+  <div class="sticky-cta" id="sticky-cta">{'<a class="sticky-offer" href="#consultation"><b>Get $100 OFF Botox</b><small>Only For the Month of ' + CURRENT_MONTH + '</small></a>' if key == 'botox' else '<a class="sticky-offer" href="#consultation"><b>Get $125 OFF Lip Filler</b><small>New clients only · Ends September 30</small></a>'}</div>
 </body>
 </html>'''
 
