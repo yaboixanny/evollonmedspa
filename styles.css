@@ -120,6 +120,8 @@ footer{background:var(--cream);color:var(--ink);padding:24px 16px 100px;text-ali
 .form-card input{height:57px;font-size:16px}
 .submit{font-size:16px;border-radius:22px;min-height:55px}
 .form-fine{font-size:12px}
+.botox-video{order:1;max-width:760px;width:100%;margin:0 auto 46px;padding:0 16px;text-align:center}
+.botox-video video{display:block;width:min(100%,440px);max-height:680px;margin:0 auto;border-radius:16px;background:#111;box-shadow:0 8px 24px #1118271a}
 .trust-section{order:2;background:#fff;padding:30px 16px 46px}
 .trust-wrap{max-width:1160px;padding:0}
 .trust-heading{text-align:center;max-width:760px;margin:0 auto}
@@ -149,4 +151,4 @@ footer{background:var(--cream);color:var(--ink);padding:24px 16px 100px;text-ali
 .gallery-wrap img{width:100%;height:auto;aspect-ratio:1100/629;object-fit:cover;border-radius:12px;background:#f2f5f7}
 .content-section{order:4}.faq-section{order:5}.visit-section{order:6}.other-treatment{order:7}
 @media(max-width:700px){.announcement{font-size:clamp(12px,3.4vw,14px);padding:11px 8px}.site-header{padding:17px 14px 15px}.site-header .wordmark{font-size:22px}.header-address{font-size:12px}.hero-inner{padding:0 16px}.hero-copy{padding:31px 0 12px}.hero h1{font-size:clamp(33px,8.7vw,45px);margin-bottom:16px}.hero .intro{font-size:17px;line-height:1.4;margin-bottom:20px}.check-list{font-size:16px;gap:8px}.check-list li:before{font-size:18px;width:19px;flex-basis:19px}.price-note{margin-top:22px}.form-card{padding:21px 19px 24px}.form-card label{font-size:14px}.form-card input{height:51px}.submit{font-size:14px;min-height:49px}.sticky-cta{padding:8px 12px}.sticky-offer b{font-size:15px}.sticky-offer small{font-size:10px}}
-@media(max-width:700px){.trust-section{padding:25px 16px 32px}.trust-heading h2{font-size:28px}.google-profile{padding:16px}.google-profile>strong,.google-profile-top>strong{font-size:17px}.google-profile-top{align-items:flex-start}.google-badge{font-size:10px;gap:4px}.google-g{font-size:18px}.google-profile div{font-size:14px;gap:6px}.google-profile div>b{font-size:17px}.stars{font-size:17px}.review-grid{grid-template-columns:1fr;gap:10px}.review-card{padding:17px}.evollon-gallery{padding:0 16px 32px}.gallery-wrap{grid-template-columns:1fr;gap:12px}}
+@media(max-width:700px){.trust-section{padding:25px 16px 32px}.trust-heading h2{font-size:28px}.google-profile{padding:16px}.google-profile>strong,.google-profile-top>strong{font-size:17px}.google-profile-top{align-items:flex-start}.google-badge{font-size:10px;gap:4px}.google-g{font-size:18px}.google-profile div{font-size:14px;gap:6px}.google-profile div>b{font-size:17px}.stars{font-size:17px}.review-grid{grid-template-columns:1fr;gap:10px}.review-card{padding:17px}.botox-video{order:3;margin:0 auto 32px;padding:0 16px}.botox-video video{width:100%;max-height:none}.evollon-gallery{padding:0 16px 32px}.gallery-wrap{grid-template-columns:1fr;gap:12px}}
