@@ -20,8 +20,19 @@
         if (!response.ok) {
           throw new Error('Submission was not accepted.');
         }
+        const treatment = form.elements.treatment?.value || 'Consultation';
         form.reset();
         dialog.showModal();
+        if (typeof window.fbq === 'function') {
+          try {
+            window.fbq('track', 'Lead', {
+              content_name: treatment,
+              content_category: 'Consultation Request',
+            });
+          } catch (_trackingError) {
+            // A blocked analytics request should not affect the form confirmation.
+          }
+        }
       } catch (_error) {
         result.innerHTML = 'Your request could not be sent. Please try again or call <a href="tel:+13477409508">347-740-9508</a>.';
         result.hidden = false;
