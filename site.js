@@ -23,7 +23,7 @@
         form.reset();
         dialog.showModal();
       } catch (_error) {
-        result.textContent = 'Your request could not be sent. Please try again.';
+        result.innerHTML = 'Your request could not be sent. Please try again or call <a href="tel:+13477409508">347-740-9508</a>.';
         result.hidden = false;
       } finally {
         button.disabled = false;
