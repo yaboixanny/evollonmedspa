@@ -33,7 +33,7 @@ OFFERS = {
         "eyebrow": "Shape and definition, on your terms",
         "headline": "Get Our <em>Lip Filler Package</em> With <em>$125 Off</em> This Month!",
         "intro": "Full lip enhancement for $375 (normally $500)—save $125. We focus on natural shape and definition for a refined, balanced look.",
-        "bullets": ["Personalized consultation and treatment plan", "Natural shape and definition—refined, never exaggerated", "Professional injectors and careful technique", "New clients only · Offer ends September 30"],
+        "bullets": ["Personalized consultation and treatment plan", "Natural shape and definition—refined, never exaggerated", "Professional injectors and careful technique", "New clients only · Offer ends October 31"],
         "description": "Lip filler is an injectable treatment used to add fullness or definition to the lips. Your consultation is the time to talk through the look you want, the product your provider recommends, and the benefits and risks.",
         "benefits": [
             ("01", "Bring your inspiration", "Talk about the shape, definition, or volume you have in mind."),
@@ -44,7 +44,7 @@ OFFERS = {
             ("What does lip filler do?", "Lip filler can add shape or fullness to your lips. Your provider can explain which option may fit your goals."),
             ("Can the result look natural?", "Yes. You can ask for a soft, natural look. Talk with your provider about the shape and amount of fullness you want."),
             ("What should I expect afterward?", "Your lips may feel tender, swollen, or bruised after treatment. These effects often improve in a few days or weeks. There are also rare but serious risks. Your provider will explain them before treatment."),
-            ("How much does it cost?", "Full lip enhancement is $375, down from $500. You save $125. This offer is for new clients and ends September 30."),
+            ("How much does it cost?", "Full lip enhancement is $375, down from $500. You save $125. This offer is for new clients and ends October 31."),
         ],
     },
 }
@@ -114,7 +114,7 @@ def render(key, d):
   </main>
   <footer><div class="wrap footer-inner"><div><span class="wordmark">EVOLLON <small>MED SPA &amp; WELLNESS</small></span><p>105-09 Metropolitan Ave, Ste 2, Forest Hills, NY 11375<br><a href="tel:+13477409508">347-740-9508</a> · <a href="mailto:info@evollon.com">info@evollon.com</a></p></div></div><div class="wrap footer-bottom"><a href="https://evollon.com/privacy-policy/" target="_blank" rel="noopener noreferrer">Privacy Policy</a><br>© Evollon Med Spa &amp; Wellness. Treatment suitability and results vary. Consultation information does not replace medical advice.</div></footer>
   <dialog class="thanks-dialog" id="thanks-dialog" aria-labelledby="thanks-title" aria-describedby="thanks-message"><h2 id="thanks-title">Thanks—your request has been received.</h2><p id="thanks-message">An Evollon team member will call or text you, usually within one business day. For immediate assistance, call <a href="tel:+13477409508">347-740-9508</a>.</p><button class="button button-primary" id="thanks-close" type="button">Close</button></dialog>
-  <div class="sticky-cta is-hidden" id="sticky-cta">{'<a class="sticky-offer" href="#lead-form"><b>Get $100 OFF Botox</b><small>Only For the Month of ' + CURRENT_MONTH + '</small></a>' if key == 'botox' else '<a class="sticky-offer" href="#lead-form"><b>Get $125 OFF Lip Filler</b><small>New clients only · Ends September 30</small></a>'}</div>
+  <div class="sticky-cta is-hidden" id="sticky-cta">{'<a class="sticky-offer" href="#lead-form"><b>Get $100 OFF Botox</b><small>Only For the Month of ' + CURRENT_MONTH + '</small></a>' if key == 'botox' else '<a class="sticky-offer" href="#lead-form"><b>Get $125 OFF Lip Filler</b><small>New clients only · Ends October 31</small></a>'}</div>
 </body>
 </html>'''
 
