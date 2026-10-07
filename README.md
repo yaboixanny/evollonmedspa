@@ -13,7 +13,7 @@ Edit the relevant treatment in `OFFERS` inside `build_pages.py`, including the p
 python3 build_pages.py
 ```
 
-The Botox page currently shows $249 for the first 30 units, $100 off the normal price. The Lip Filler page shows full lip enhancement for $375 (normally $500), a $125 saving for new clients through October 31.
+The Botox page currently shows 25 units for $175 (normally $300 at $12 per unit), a $125 saving. The Lip Filler page shows full lip enhancement for $375 (normally $500), a $125 saving for new clients through October 31.
 
 ## Preview locally
 
