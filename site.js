@@ -43,7 +43,10 @@
           }
         }
       } catch (_error) {
-        result.innerHTML = 'Your request could not be sent. Please try again or call <a href="tel:+13477409508">347-740-9508</a>.';
+        const phoneLink = document.body.dataset.treatment === 'aesthetics'
+          ? '<a href="tel:+13477409508" onclick="gtag(\'event\',\'conversion\',{\'send_to\':\'AW-18426796196/Zl9KCL3qyaIdEKSxytJE\'})">(347) 740-9508</a>'
+          : '<a href="tel:+13477409508">347-740-9508</a>';
+        result.innerHTML = `Your request could not be sent. Please try again or call ${phoneLink}.`;
         result.hidden = false;
       } finally {
         button.disabled = false;
