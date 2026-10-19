@@ -5,7 +5,7 @@
 - `aesthetics/index.html` is the broad, brand-neutral med spa services landing page at `/aesthetics/`.
 - `build_service_landers.py` generates the focused service pages at `/filler-dissolving/`, `/wrinkle-relaxers/`, `/lip-filler-consultation/`, `/cheek-jawline-filler/`, `/under-eye-filler/`, `/smile-lines-filler/`, and `/collagen-stimulator/`.
 
-All pages use `styles.css` and `site.js`, load Google Tag Manager container `GTM-W4987RVB`, and retain the existing Meta Pixel. The forms use Netlify Forms and show a thank-you dialog after a successful submission. Enable form detection in Netlify and redeploy. Submissions appear in the Netlify dashboard; to receive emails, configure Forms → Submission notifications. Forms only submit on the deployed site, not when the HTML files are opened directly from disk. There is no booking or payment backend connected.
+All pages use `styles.css` and `site.js`, load Google Tag Manager container `GTM-W4987RVB`, and retain the existing Meta Pixel. Successful submissions on the broad aesthetics page and focused Google Ads service pages push a `form_submit` event to `dataLayer`; the older Botox and promotional lip-filler pages are excluded from that GTM event. The forms use Netlify Forms and show a thank-you dialog after a successful submission. Enable form detection in Netlify and redeploy. Submissions appear in the Netlify dashboard; to receive emails, configure Forms → Submission notifications. Forms only submit on the deployed site, not when the HTML files are opened directly from disk. There is no booking or payment backend connected.
 
 ## Add offer pricing
 

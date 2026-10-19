@@ -21,6 +21,15 @@
           throw new Error('Submission was not accepted.');
         }
         const treatment = form.elements.treatment?.value || 'Consultation';
+        if (document.body.dataset.treatment === 'aesthetics') {
+          window.dataLayer = window.dataLayer || [];
+          window.dataLayer.push({
+            event: 'form_submit',
+            form_name: form.getAttribute('name') || 'aesthetics-lead',
+            treatment,
+            page_path: window.location.pathname,
+          });
+        }
         form.reset();
         dialog.showModal();
         if (typeof window.fbq === 'function') {
