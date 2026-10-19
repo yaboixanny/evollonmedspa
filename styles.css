@@ -182,7 +182,9 @@ body[data-treatment="aesthetics"] .aesthetics-hero .button{min-width:270px}
 .service-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:34px}
 .service-card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:22px;box-shadow:0 2px 10px #11182708}
 .service-card h3{margin:0 0 8px;font-size:17px;line-height:1.35;color:var(--ink)}
+.service-card h3 a,.service-links a{color:var(--rose-dark);text-underline-offset:3px}
 .service-card p{margin:0;color:var(--muted);font-size:13px;line-height:1.65}
+.service-card .service-links{margin-top:10px}
 body[data-treatment="aesthetics"] .trust-section{order:3}
 body[data-treatment="aesthetics"] .review-grid{grid-template-columns:repeat(2,minmax(0,1fr));max-width:780px;margin-left:auto;margin-right:auto}
 body[data-treatment="aesthetics"] .evollon-gallery{order:4}
@@ -190,5 +192,8 @@ body[data-treatment="aesthetics"] .content-section{order:5}
 body[data-treatment="aesthetics"] .faq-section{order:6}
 body[data-treatment="aesthetics"] .visit-section{order:7}
 body[data-treatment="aesthetics"] .other-treatment{order:8}
+body[data-page="service"] .service-focus{order:2}
+.related-services{max-width:980px}
+.related-links{display:flex;justify-content:flex-end;flex-wrap:wrap;gap:10px}
 @media(max-width:800px){.service-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media(max-width:700px){body[data-treatment="aesthetics"] .aesthetics-hero .hero-copy{padding-bottom:29px}.aesthetics-services{padding:42px 16px}.aesthetics-services .section-heading h2{font-size:30px}.aesthetics-services .section-heading p{text-align:left}.service-grid{grid-template-columns:1fr;margin-top:24px}.service-card{padding:19px}body[data-treatment="aesthetics"] .review-grid{grid-template-columns:1fr}}
+@media(max-width:700px){body[data-treatment="aesthetics"] .aesthetics-hero .hero-copy{padding-bottom:29px}.aesthetics-services{padding:42px 16px}.aesthetics-services .section-heading h2{font-size:30px}.aesthetics-services .section-heading p{text-align:left}.service-grid{grid-template-columns:1fr;margin-top:24px}.service-card{padding:19px}body[data-treatment="aesthetics"] .review-grid{grid-template-columns:1fr}.related-links{justify-content:center}}
