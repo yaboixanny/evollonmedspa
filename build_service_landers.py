@@ -52,7 +52,7 @@ SERVICES = {
             ("Is there downtime or risk?", "Many people return to usual activities soon afterward, but redness, swelling, bruising, headache, or other side effects can occur. There are also important uncommon risks that your provider will review."),
         ],
     },
-    "lip-filler": {
+    "lip-filler-consultation": {
         "name": "Lip Filler",
         "eyebrow": "Shape and definition, on your terms",
         "intro": "Explore lip filler at Evollon Med Spa & Wellness in Forest Hills. Discuss the shape, definition, balance, or fullness you want with an experienced aesthetic provider.",
@@ -170,10 +170,10 @@ SERVICES = {
 }
 
 RELATED = {
-    "filler-dissolving": [("Explore all med spa services", "../aesthetics/"), ("Learn about lip filler", "../lip-filler/")],
+    "filler-dissolving": [("Explore all med spa services", "../aesthetics/"), ("Learn about lip filler", "../lip-filler-consultation/")],
     "wrinkle-relaxers": [("Explore all med spa services", "../aesthetics/"), ("Learn about collagen stimulators", "../collagen-stimulator/")],
-    "lip-filler": [("View the current lip filler offer", "../lip-filler.html"), ("Learn about cheek & jawline filler", "../cheek-jawline-filler/")],
-    "cheek-jawline-filler": [("Learn about lip filler", "../lip-filler/"), ("Learn about collagen stimulators", "../collagen-stimulator/")],
+    "lip-filler-consultation": [("View the current lip filler offer", "../lip-filler.html"), ("Learn about cheek & jawline filler", "../cheek-jawline-filler/")],
+    "cheek-jawline-filler": [("Learn about lip filler", "../lip-filler-consultation/"), ("Learn about collagen stimulators", "../collagen-stimulator/")],
     "under-eye-filler": [("Explore all med spa services", "../aesthetics/"), ("Learn about smile lines filler", "../smile-lines-filler/")],
     "smile-lines-filler": [("Learn about under-eye filler", "../under-eye-filler/"), ("Learn about cheek & jawline filler", "../cheek-jawline-filler/")],
     "collagen-stimulator": [("Explore all med spa services", "../aesthetics/"), ("Learn about cheek & jawline filler", "../cheek-jawline-filler/")],
