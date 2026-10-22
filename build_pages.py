@@ -105,7 +105,7 @@ def render(key, d):
     treatment_video = {
         "botox": f'''<section class="treatment-video" aria-label="Botox treatment video"><video controls autoplay muted loop playsinline preload="metadata"><source src="{asset_prefix}assets/evollon-botox.mp4" type="video/mp4">Your browser does not support this video.</video></section>''',
         "lip-filler": f'''<section class="treatment-video" aria-label="Lip filler treatment video"><video controls autoplay muted loop playsinline preload="metadata"><source src="{asset_prefix}assets/evollon-lip-filler.mp4" type="video/mp4">Your browser does not support this video.</video></section>''',
-        "hydrodermabrasion": "",
+        "hydrodermabrasion": f'''<section class="treatment-video" aria-label="Hydrodermabrasion treatment video"><video controls autoplay muted loop playsinline preload="metadata"><source src="{asset_prefix}assets/evollon-hydrodermabrasion.mp4" type="video/mp4">Your browser does not support this video.</video></section>''',
     }[key]
     price_highlight = {
         "botox": '''          <div class="offer-price" aria-label="Botox promotional pricing"><span class="offer-price-was"><small>Normally</small><s>$300</s></span><span class="offer-price-now"><small>October special</small><strong>$175</strong></span><span class="offer-price-save">Save $125 · 25 units at $7 each</span></div>
