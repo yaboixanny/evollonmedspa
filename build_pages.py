@@ -1,4 +1,4 @@
-"""Build the two static Evollon treatment pages. Edit OFFERS to change pricing."""
+"""Build Evollon's promotional treatment pages. Edit OFFERS to change pricing."""
 
 from html import escape
 from pathlib import Path
@@ -47,24 +47,84 @@ OFFERS = {
             ("How much does it cost?", "A half syringe of lip filler is $249 this month, down from the regular price of $498. That’s a 50% saving. Ask your provider whether a half syringe is appropriate for your treatment goals."),
         ],
     },
+    "hydrodermabrasion": {
+        "file": "hydrodermabrasion/index.html",
+        "name": "Signature Hydrodermabrasion Facial",
+        "eyebrow": "Deeply cleansed, polished, and replenished",
+        "headline": "Reveal <em>Fresh, Luminous Skin</em> With Hydrodermabrasion Starting at <em>$99</em>",
+        "intro": "This October, refresh your skin with a signature hydrodermabrasion facial starting at $99—plus a complimentary red light therapy session to support collagen and help maximize your results.",
+        "bullets": [
+            "Deep cleansing, gentle exfoliation, impurity extraction, and hydration infusion",
+            "Advanced Nuba skin system with German-crafted diamond tips",
+            "Powerful vacuum suction for exfoliation and deep pore cleansing",
+            "Complimentary red light therapy session included this month",
+        ],
+        "description": "Our signature hydrodermabrasion facial combines gentle diamond-tip exfoliation, vacuum-assisted pore cleansing, impurity extraction, and an infusion of intense hydration. The goal is an immediately fresher, smoother, naturally luminous ‘baby skin’ finish.",
+        "benefits": [
+            ("01", "Polish away dullness", "German-crafted diamond tips gently exfoliate the skin’s surface for a smoother look and feel."),
+            ("02", "Deep-clean the pores", "Powerful vacuum suction helps lift impurities while supporting a thorough, comfortable cleanse."),
+            ("03", "Replenish and glow", "Hydration infusion and complimentary red light therapy complete the treatment for a fresh, luminous finish."),
+        ],
+        "faq": [
+            ("What is hydrodermabrasion?", "Hydrodermabrasion is a multi-step facial that cleanses, exfoliates, extracts impurities, and infuses hydration. Your provider can tailor the treatment to your skin and goals."),
+            ("What technology does Evollon use?", "Evollon uses the advanced Nuba skin system with German-crafted diamond tips and powerful vacuum suction for exfoliation and deep pore cleansing."),
+            ("What results can I expect?", "The treatment is designed to reveal skin that looks fresh, smooth, hydrated, and naturally luminous right away. Individual results vary."),
+            ("What is included in this month’s offer?", "Hydrodermabrasion starts at $99 this month and includes a complimentary red light therapy session to support collagen and help maximize results. Your provider will confirm the treatment plan and final price before treatment."),
+        ],
+    },
 }
 
 
 def render(key, d):
     title = f"{d['name']} Consultation | Evollon Med Spa"
+    asset_prefix = "../" if "/" in d["file"] else ""
+    canonical_link = '  <link rel="canonical" href="https://evollon.onlynearyou.com/hydrodermabrasion/">\n' if key == "hydrodermabrasion" else ""
+    announcement = {
+        "botox": "Botox Special: 25 Units for $175 · Save $125",
+        "lip-filler": "Lip Filler Special: Half Syringe for $249 · 50% Off",
+        "hydrodermabrasion": "October Special: Hydrodermabrasion From $99 + Complimentary Red Light Therapy",
+    }[key]
+    form_name = {
+        "botox": "botox-lead",
+        "lip-filler": "lip-filler-lead",
+        "hydrodermabrasion": "hydrodermabrasion-lead",
+    }[key]
+    offer_value = {
+        "botox": "25 units for $175 (normally $300; save $125)",
+        "lip-filler": "Half syringe for $249 (normally $498; 50% off)",
+        "hydrodermabrasion": "Starting at $99 with complimentary red light therapy",
+    }[key]
+    submit_text = {
+        "botox": "Claim 25 units for $175",
+        "lip-filler": "Claim half syringe for $249",
+        "hydrodermabrasion": "Claim the $99 facial offer",
+    }[key]
     bullets = "\n".join(f"<li>{escape(x)}</li>" for x in d["bullets"])
     benefits = "\n".join(f'<article class="step"><span>{n}</span><h3>{escape(h)}</h3><p>{escape(p)}</p></article>' for n, h, p in d["benefits"])
     faqs = "\n".join(f'<details><summary>{escape(q)}</summary><div class="answer">{escape(a)}</div></details>' for q, a in d["faq"])
     treatment_video = {
-        "botox": '''<section class="treatment-video" aria-label="Botox treatment video"><video controls autoplay muted loop playsinline preload="metadata"><source src="assets/evollon-botox.mp4" type="video/mp4">Your browser does not support this video.</video></section>''',
-        "lip-filler": '''<section class="treatment-video" aria-label="Lip filler treatment video"><video controls autoplay muted loop playsinline preload="metadata"><source src="assets/evollon-lip-filler.mp4" type="video/mp4">Your browser does not support this video.</video></section>''',
+        "botox": f'''<section class="treatment-video" aria-label="Botox treatment video"><video controls autoplay muted loop playsinline preload="metadata"><source src="{asset_prefix}assets/evollon-botox.mp4" type="video/mp4">Your browser does not support this video.</video></section>''',
+        "lip-filler": f'''<section class="treatment-video" aria-label="Lip filler treatment video"><video controls autoplay muted loop playsinline preload="metadata"><source src="{asset_prefix}assets/evollon-lip-filler.mp4" type="video/mp4">Your browser does not support this video.</video></section>''',
+        "hydrodermabrasion": "",
     }[key]
     price_highlight = {
         "botox": '''          <div class="offer-price" aria-label="Botox promotional pricing"><span class="offer-price-was"><small>Normally</small><s>$300</s></span><span class="offer-price-now"><small>October special</small><strong>$175</strong></span><span class="offer-price-save">Save $125 · 25 units at $7 each</span></div>
 ''',
         "lip-filler": '''          <div class="offer-price" aria-label="Lip filler promotional pricing"><span class="offer-price-was"><small>Normally</small><s>$498</s></span><span class="offer-price-now"><small>October special</small><strong>$249</strong></span><span class="offer-price-save">Save 50% · Half syringe</span></div>
 ''',
+        "hydrodermabrasion": '''          <div class="offer-price" aria-label="Hydrodermabrasion promotional pricing"><span class="offer-price-now"><small>October special · Starting at</small><strong>$99</strong></span><span class="offer-price-save">Complimentary red light therapy included</span></div>
+''',
     }[key]
+    related_section = '''    <section class="other-treatment wrap"><div><div class="eyebrow">EXPLORE MORE AT EVOLLON</div><h2>Looking for another way to refresh your look?</h2></div><a class="button button-outline" href="../aesthetics/">Explore all med spa services</a></section>
+''' if key == "hydrodermabrasion" else ""
+    sticky_offer = {
+        "botox": f'<a class="sticky-offer" href="#lead-form"><b>25 Units of Botox for $175</b><small>Normally $300 · Save $125 this {CURRENT_MONTH}</small></a>',
+        "lip-filler": f'<a class="sticky-offer" href="#lead-form"><b>Half Syringe of Lip Filler for $249</b><small>Normally $498 · Save 50% this {CURRENT_MONTH}</small></a>',
+        "hydrodermabrasion": f'<a class="sticky-offer" href="#lead-form"><b>Hydrodermabrasion Starting at $99</b><small>Free red light therapy · {CURRENT_MONTH} only</small></a>',
+    }[key]
+    default_review_cards = '''<article class="review-card"><div class="review-head"><span class="review-avatar blue">M</span><div><strong>Moon</strong><small>4 reviews · 1 photo</small></div></div><div class="review-meta"><span class="stars" aria-label="5 out of 5 stars">★★★★★</span><span>a week ago</span><b>New</b></div><p>“Nadia did a phenomenal job with my lips. I didn’t feel pain, she has the most gentle hands, and she took her time to explain everything. She is so sweet and welcoming.”</p></article><article class="review-card"><div class="review-head"><span class="review-avatar green">J</span><div><strong>Jose Caba</strong><small>3 reviews</small></div></div><div class="review-meta"><span class="stars" aria-label="5 out of 5 stars">★★★★★</span><span>3 weeks ago</span><b>New</b></div><p>“Beautiful experience for my mother on her birthday for Botox treatment. Nadia was amazing, and my mom left very happy. Highly recommended!”</p></article><article class="review-card"><div class="review-head"><span class="review-avatar blue">S</span><div><strong>Stella Mullayev</strong><small>10 reviews</small></div></div><div class="review-meta"><span class="stars" aria-label="5 out of 5 stars">★★★★★</span><span>2 months ago</span></div><p>“Nadia was wonderful. She made me feel comfortable from the start, answered all of my questions, and explained everything thoroughly. Her professionalism and genuine care really stood out.”</p></article>'''
+    hydro_review_card = '''<article class="review-card"><div class="review-head"><span class="review-avatar blue">S</span><div><strong>Stella Mullayev</strong><small>10 reviews</small></div></div><div class="review-meta"><span class="stars" aria-label="5 out of 5 stars">★★★★★</span><span>2 months ago</span></div><p>“Nadia was wonderful. She made me feel comfortable from the start, answered all of my questions, and explained everything thoroughly. Her professionalism and genuine care really stood out.”</p></article>'''
+    review_cards = hydro_review_card if key == "hydrodermabrasion" else default_review_cards
     return f'''<!doctype html>
 <html lang="en">
 <head>
@@ -72,12 +132,12 @@ def render(key, d):
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#f8f2ee">
   <meta name="description" content="Explore {escape(d['name'])} at Evollon Med Spa in Forest Hills, NY and request a personalized consultation.">
-  <title>{escape(title)}</title>
+{canonical_link}  <title>{escape(title)}</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
-  <script src="site.js" defer></script>
+  <link rel="stylesheet" href="{asset_prefix}styles.css">
+  <script src="{asset_prefix}site.js" defer></script>
   <!-- Google Tag Manager -->
   <script>(function(w,d,s,l,i){{w[l]=w[l]||[];w[l].push({{'gtm.start':
   new Date().getTime(),event:'gtm.js'}});var f=d.getElementsByTagName(s)[0],
@@ -106,7 +166,7 @@ def render(key, d):
   <!-- Google Tag Manager (noscript) -->
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W4987RVB" height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Manager"></iframe></noscript>
   <!-- End Google Tag Manager (noscript) -->
-  <div class="announcement">{'Botox Special: 25 Units for $175 · Save $125' if key == 'botox' else 'Lip Filler Special: Half Syringe for $249 · 50% Off'}</div>
+  <div class="announcement">{escape(announcement)}</div>
   <header class="site-header wrap">
     <div class="wordmark">Evollon Med Spa &amp; Wellness</div>
     <div class="header-address">105-09 Metropolitan Ave, Ste 2, Forest Hills, NY 11375</div>
@@ -124,20 +184,22 @@ def render(key, d):
     </section>
     <section class="intro-strip"><div class="wrap strip-inner"><span>PERSONALIZED CARE</span><i></i><span>NATURAL LOOKING GOALS</span><i></i><span>FOREST HILLS, NEW YORK</span></div></section>
     <section class="content-section wrap" id="about"><div class="section-heading"><div class="eyebrow">THE EVOLLON APPROACH</div><h2>Beauty that begins <em>with you.</em></h2><p>{escape(d['description'])}</p></div><div class="steps">{benefits}</div></section>
-    <section class="consult-section" id="consultation"><div class="wrap consult-grid"><div class="consult-copy"><div class="eyebrow">LET'S TALK</div><h2>Your next step starts <em>here.</em></h2><p>Have a question about {escape(d['name'])}? Share your details and Evollon will be in touch.</p><div class="contact-line"><span aria-hidden="true">⌖</span><div><strong>Visit us in Forest Hills</strong><br>105-09 Metropolitan Ave, Ste 2<br>Forest Hills, NY 11375<br><a href="tel:+13477409508">347-740-9508</a> · <a href="mailto:info@evollon.com">info@evollon.com</a></div></div></div><form class="form-card" id="lead-form" name="{'botox-lead' if key == 'botox' else 'lip-filler-lead'}" method="POST" data-netlify="true" aria-label="Ask about {escape(d['name'])}"><input type="hidden" name="form-name" value="{'botox-lead' if key == 'botox' else 'lip-filler-lead'}"><input type="hidden" name="treatment" value="{escape(d['name'])}"><input type="hidden" name="offer" value="{'25 units for $175 (normally $300; save $125)' if key == 'botox' else 'Half syringe for $249 (normally $498; 50% off)'}"><div class="form-title">Ask about {escape(d['name'])}<span>We'll help you take the next step.</span></div><label for="full-name">Full name <span class="required">*</span></label><input id="full-name" name="name" autocomplete="name" required placeholder="Full name"><label for="email">Email <span class="optional">(optional)</span></label><input id="email" name="email" type="email" autocomplete="email" placeholder="Email"><label for="phone">Phone <span class="required">*</span></label><input id="phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required placeholder="Phone"><label class="consent-option" for="contact-consent"><input id="contact-consent" name="contact-consent" type="checkbox" value="Agreed" required><span>I agree that Evollon may call or text me at the number provided about this request and appointment scheduling. Message and data rates may apply. Reply STOP to opt out. Consent is not a condition of purchase. <span class="required">*</span></span></label><label class="consent-option" for="marketing-consent"><input id="marketing-consent" name="marketing-consent" type="checkbox" value="Agreed"><span>Yes, I would also like to receive occasional promotional texts and emails from Evollon. This is optional, and I can unsubscribe at any time.</span></label><button class="button button-primary submit" type="submit">{'Claim 25 units for $175' if key == 'botox' else 'Claim half syringe for $249'}</button><p class="form-fine">Evollon uses your information to respond to this request. Read the <a href="https://evollon.com/privacy-policy/" target="_blank" rel="noopener noreferrer">Privacy Policy</a> to learn what is collected, how it is used, who may receive it, and how to contact Evollon about your data.</p><div class="form-result" id="form-result" role="alert" hidden></div></form></div></section>
+    <section class="consult-section" id="consultation"><div class="wrap consult-grid"><div class="consult-copy"><div class="eyebrow">LET'S TALK</div><h2>Your next step starts <em>here.</em></h2><p>Have a question about {escape(d['name'])}? Share your details and Evollon will be in touch.</p><div class="contact-line"><span aria-hidden="true">⌖</span><div><strong>Visit us in Forest Hills</strong><br>105-09 Metropolitan Ave, Ste 2<br>Forest Hills, NY 11375<br><a href="tel:+13477409508">347-740-9508</a> · <a href="mailto:info@evollon.com">info@evollon.com</a></div></div></div><form class="form-card" id="lead-form" name="{form_name}" method="POST" data-netlify="true" aria-label="Ask about {escape(d['name'])}"><input type="hidden" name="form-name" value="{form_name}"><input type="hidden" name="treatment" value="{escape(d['name'])}"><input type="hidden" name="offer" value="{escape(offer_value)}"><div class="form-title">Ask about {escape(d['name'])}<span>We'll help you take the next step.</span></div><label for="full-name">Full name <span class="required">*</span></label><input id="full-name" name="name" autocomplete="name" required placeholder="Full name"><label for="email">Email <span class="optional">(optional)</span></label><input id="email" name="email" type="email" autocomplete="email" placeholder="Email"><label for="phone">Phone <span class="required">*</span></label><input id="phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required placeholder="Phone"><label class="consent-option" for="contact-consent"><input id="contact-consent" name="contact-consent" type="checkbox" value="Agreed" required><span>I agree that Evollon may call or text me at the number provided about this request and appointment scheduling. Message and data rates may apply. Reply STOP to opt out. Consent is not a condition of purchase. <span class="required">*</span></span></label><label class="consent-option" for="marketing-consent"><input id="marketing-consent" name="marketing-consent" type="checkbox" value="Agreed"><span>Yes, I would also like to receive occasional promotional texts and emails from Evollon. This is optional, and I can unsubscribe at any time.</span></label><button class="button button-primary submit" type="submit">{escape(submit_text)}</button><p class="form-fine">Evollon uses your information to respond to this request. Read the <a href="https://evollon.com/privacy-policy/" target="_blank" rel="noopener noreferrer">Privacy Policy</a> to learn what is collected, how it is used, who may receive it, and how to contact Evollon about your data.</p><div class="form-result" id="form-result" role="alert" hidden></div></form></div></section>
 {treatment_video}
-    <section class="trust-section"><div class="wrap trust-wrap"><div class="trust-heading"><div class="eyebrow">THE EVOLLON EXPERIENCE</div><h2>Why Evollon?</h2><div class="google-profile"><div class="google-profile-top"><strong>Evollon Medspa &amp; Wellness</strong></div><div><span class="google-g" aria-label="Google">G</span><b>5.0</b> <span class="stars" aria-label="5 out of 5 stars">★★★★★</span> <span>48 Google reviews</span></div><small>Medical spa in New York</small></div></div><div class="review-grid"><article class="review-card"><div class="review-head"><span class="review-avatar blue">M</span><div><strong>Moon</strong><small>4 reviews · 1 photo</small></div></div><div class="review-meta"><span class="stars" aria-label="5 out of 5 stars">★★★★★</span><span>a week ago</span><b>New</b></div><p>“Nadia did a phenomenal job with my lips. I didn’t feel pain, she has the most gentle hands, and she took her time to explain everything. She is so sweet and welcoming.”</p></article><article class="review-card"><div class="review-head"><span class="review-avatar green">J</span><div><strong>Jose Caba</strong><small>3 reviews</small></div></div><div class="review-meta"><span class="stars" aria-label="5 out of 5 stars">★★★★★</span><span>3 weeks ago</span><b>New</b></div><p>“Beautiful experience for my mother on her birthday for Botox treatment. Nadia was amazing, and my mom left very happy. Highly recommended!”</p></article><article class="review-card"><div class="review-head"><span class="review-avatar blue">S</span><div><strong>Stella Mullayev</strong><small>10 reviews</small></div></div><div class="review-meta"><span class="stars" aria-label="5 out of 5 stars">★★★★★</span><span>2 months ago</span></div><p>“Nadia was wonderful. She made me feel comfortable from the start, answered all of my questions, and explained everything thoroughly. Her professionalism and genuine care really stood out.”</p></article></div></div></section>
-    <section class="evollon-gallery" aria-label="Evollon Med Spa treatment experience"><div class="wrap gallery-wrap"><img src="assets/evollon-treatment.webp" alt="Evollon Med Spa provider providing a facial treatment" width="1100" height="629" loading="lazy"><img src="assets/evollon-wellness.webp" alt="Evollon Med Spa provider attending to a client in a treatment room" width="1100" height="629" loading="lazy"></div></section>
+    <section class="trust-section"><div class="wrap trust-wrap"><div class="trust-heading"><div class="eyebrow">THE EVOLLON EXPERIENCE</div><h2>Why Evollon?</h2><div class="google-profile"><div class="google-profile-top"><strong>Evollon Medspa &amp; Wellness</strong></div><div><span class="google-g" aria-label="Google">G</span><b>5.0</b> <span class="stars" aria-label="5 out of 5 stars">★★★★★</span> <span>48 Google reviews</span></div><small>Medical spa in New York</small></div></div><div class="review-grid">{review_cards}</div></div></section>
+    <section class="evollon-gallery" aria-label="Evollon Med Spa treatment experience"><div class="wrap gallery-wrap"><img src="{asset_prefix}assets/evollon-treatment.webp" alt="Evollon Med Spa provider providing a facial treatment" width="1100" height="629" loading="lazy"><img src="{asset_prefix}assets/evollon-wellness.webp" alt="Evollon Med Spa provider attending to a client in a treatment room" width="1100" height="629" loading="lazy"></div></section>
     <section class="faq-section wrap"><div class="section-heading"><div class="eyebrow">GOOD TO KNOW</div><h2>Questions? <em>Let's talk.</em></h2></div><div class="faq-list">{faqs}</div></section>
     <section class="visit-section"><div class="wrap visit-grid"><div><div class="eyebrow">COME SEE US</div><h2>Close to home. <em>Here for you.</em></h2><p>Evollon Med Spa &amp; Wellness<br>105-09 Metropolitan Ave, Ste 2<br>Forest Hills, NY 11375</p></div><div class="map-frame"><iframe title="Map to Evollon Med Spa in Forest Hills" src="https://www.google.com/maps?q=105-09%20Metropolitan%20Ave%20Ste%202%2C%20Forest%20Hills%2C%20NY%2011375&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div></div></section>
-  </main>
+{related_section}  </main>
   <footer><div class="wrap footer-inner"><div><span class="wordmark">EVOLLON <small>MED SPA &amp; WELLNESS</small></span><p>105-09 Metropolitan Ave, Ste 2, Forest Hills, NY 11375<br><a href="tel:+13477409508">347-740-9508</a> · <a href="mailto:info@evollon.com">info@evollon.com</a></p></div></div><div class="wrap footer-bottom"><a href="https://evollon.com/privacy-policy/" target="_blank" rel="noopener noreferrer">Privacy Policy</a><br>© Evollon Med Spa &amp; Wellness. Treatment suitability and results vary. Consultation information does not replace medical advice.</div></footer>
   <dialog class="thanks-dialog" id="thanks-dialog" aria-labelledby="thanks-title" aria-describedby="thanks-message"><h2 id="thanks-title">Thanks—your request has been received.</h2><p id="thanks-message">An Evollon team member will call or text you, usually within one business day. For immediate assistance, call <a href="tel:+13477409508">347-740-9508</a>.</p><button class="button button-primary" id="thanks-close" type="button">Close</button></dialog>
-  <div class="sticky-cta is-hidden" id="sticky-cta">{'<a class="sticky-offer" href="#lead-form"><b>25 Units of Botox for $175</b><small>Normally $300 · Save $125 this ' + CURRENT_MONTH + '</small></a>' if key == 'botox' else '<a class="sticky-offer" href="#lead-form"><b>Half Syringe of Lip Filler for $249</b><small>Normally $498 · Save 50% this ' + CURRENT_MONTH + '</small></a>'}</div>
+  <div class="sticky-cta is-hidden" id="sticky-cta">{sticky_offer}</div>
 </body>
 </html>'''
 
 
 for key, offer in OFFERS.items():
-    (ROOT / offer["file"]).write_text(render(key, offer), encoding="utf-8")
+    output = ROOT / offer["file"]
+    output.parent.mkdir(parents=True, exist_ok=True)
+    output.write_text(render(key, offer), encoding="utf-8")
     print(f"Wrote {offer['file']}")

@@ -194,6 +194,8 @@ body[data-treatment="aesthetics"] .content-section{order:5}
 body[data-treatment="aesthetics"] .faq-section{order:6}
 body[data-treatment="aesthetics"] .visit-section{order:7}
 body[data-treatment="aesthetics"] .other-treatment{order:8}
+body[data-treatment="hydrodermabrasion"] .announcement{white-space:normal}
+body[data-treatment="hydrodermabrasion"] .review-grid{grid-template-columns:minmax(0,560px);justify-content:center}
 body[data-page="service"] .service-focus{order:2}
 .related-services{max-width:980px}
 .related-links{display:flex;justify-content:flex-end;flex-wrap:wrap;gap:10px}

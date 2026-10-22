@@ -2,6 +2,7 @@
 
 - `index.html` is the Botox page.
 - `lip-filler.html` is the lip filler page.
+- `hydrodermabrasion/index.html` is the signature hydrodermabrasion promotional page at `/hydrodermabrasion/`.
 - `aesthetics/index.html` is the broad, brand-neutral med spa services landing page at `/aesthetics/`.
 - `build_service_landers.py` generates the focused service pages at `/filler-dissolving/`, `/wrinkle-relaxers/`, `/lip-filler-consultation/`, `/cheek-jawline-filler/`, `/under-eye-filler/`, `/smile-lines-filler/`, and `/collagen-stimulator/`.
 
@@ -15,7 +16,7 @@ Edit the relevant treatment in `OFFERS` inside `build_pages.py`, including the p
 python3 build_pages.py
 ```
 
-The Botox page currently shows 25 units for $175 (normally $300 at $12 per unit), a $125 saving. The Lip Filler page shows a half syringe for $249 (normally $498), a 50% saving.
+The Botox page currently shows 25 units for $175 (normally $300 at $12 per unit), a $125 saving. The Lip Filler page shows a half syringe for $249 (normally $498), a 50% saving. The Hydrodermabrasion page starts at $99 and includes complimentary red light therapy for the current offer month.
 
 ## Update service landing pages
 
@@ -31,4 +32,4 @@ python3 build_service_landers.py
 python3 -m http.server 8765
 ```
 
-Open `http://localhost:8765/` for Botox, `http://localhost:8765/lip-filler.html` for the lip filler offer, and `http://localhost:8765/aesthetics/` for the broad med spa page. The focused pages use the clean paths listed above.
+Open `http://localhost:8765/` for Botox, `http://localhost:8765/lip-filler.html` for the lip filler offer, `http://localhost:8765/hydrodermabrasion/` for the hydrodermabrasion offer, and `http://localhost:8765/aesthetics/` for the broad med spa page. The focused pages use the clean paths listed above.
