@@ -13,7 +13,7 @@ OFFERS = {
         "file": "index.html",
         "name": "Botox",
         "eyebrow": "A more rested look, still entirely you",
-        "headline": "Get <em>25 Units of Botox</em> for Just <em>$175</em> This Month!",
+        "headline": "Get <em>25 units of Botox</em> for just <em>$175</em>.",
         "intro": "Normally $300 at $12 per unit. This month, get 25 units for $175—just $7 per unit and a $125 savings. The package also includes a personalized treatment plan with our specialist.",
         "bullets": ["Personalized consultation and treatment plan", "Designed to soften fine lines, wrinkles, and expression lines", "No downtime, non-invasive treatment, and no surgery", "Convenient Forest Hills, Queens location"],
         "description": "Botox is an injectable treatment that temporarily relaxes certain facial muscles. During your consultation, you can discuss the areas that concern you, your health history, and whether treatment is appropriate for you.",
