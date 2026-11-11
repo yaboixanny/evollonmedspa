@@ -56,14 +56,26 @@
   }
 
   const sticky = document.querySelector('#sticky-cta');
-  const experienceLabel = document.querySelector('.trust-heading .eyebrow');
-  if (sticky && experienceLabel) {
-    const update = () => sticky.classList.toggle(
-      'is-hidden',
-      experienceLabel.getBoundingClientRect().top > window.innerHeight,
-    );
+  const heroCta = document.querySelector('.hero-primary-cta');
+  if (sticky && heroCta && form) {
+    const update = () => {
+      const heroCtaPassed = heroCta.getBoundingClientRect().bottom < 0;
+      const isMobile = window.matchMedia('(max-width: 700px)').matches;
+      const stickyTop = window.innerHeight - (sticky.offsetHeight || 70);
+      const controlOverlapsSticky = [...form.querySelectorAll('input, button')].some((control) => {
+        const rect = control.getBoundingClientRect();
+        return rect.top < window.innerHeight && rect.bottom > stickyTop;
+      });
+      const formHasFocus = form.contains(document.activeElement);
+      sticky.classList.toggle(
+        'is-hidden',
+        !isMobile || !heroCtaPassed || controlOverlapsSticky || formHasFocus,
+      );
+    };
     update();
     window.addEventListener('scroll', update, { passive: true });
     window.addEventListener('resize', update);
+    form.addEventListener('focusin', update);
+    form.addEventListener('focusout', update);
   }
 })();

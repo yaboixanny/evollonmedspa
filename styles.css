@@ -120,7 +120,7 @@ footer{background:var(--cream);color:var(--ink);padding:24px 16px 100px;text-ali
 .price-note{max-width:640px;margin:27px auto 0}
 .consult-grid{max-width:760px}
 .form-card{max-width:760px;padding:30px 35px 32px}
-.form-title{display:none}
+.form-title{display:none}body[data-treatment="botox"] .form-title,body[data-treatment="lip-filler"] .form-title,body[data-treatment="hydrodermabrasion"] .form-title{display:block}
 .form-card label{font-size:16px;margin:14px 0 6px}
 .form-card label .required{color:var(--rose-dark);font-weight:700}
 .form-card input{height:57px;font-size:16px}
@@ -174,7 +174,7 @@ footer{background:var(--cream);color:var(--ink);padding:24px 16px 100px;text-ali
 body[data-treatment="aesthetics"] .aesthetics-hero .hero-copy{padding-bottom:34px}
 body[data-treatment="aesthetics"] .announcement{white-space:normal}
 body[data-treatment="aesthetics"] .aesthetics-hero .hero-actions{justify-content:center;margin-top:26px}
-.botox-hero-actions{flex-direction:column;justify-content:center;gap:8px;margin:0 0 24px}.botox-hero-actions .text-link{font-size:12px}
+.promo-hero-actions{flex-direction:column;justify-content:center;gap:8px;margin:0 0 10px}.promo-hero-actions .text-link{font-size:12px}.hero-rating{display:flex;justify-content:center;align-items:center;gap:5px;margin:0 0 22px;color:var(--muted);font-size:13px}.hero-rating span{color:#f3a712;letter-spacing:1px;font-size:16px}.hero-rating strong{color:var(--ink)}
 body[data-treatment="aesthetics"] .aesthetics-hero .button{min-width:270px}
 body[data-treatment="aesthetics"] .button-call{background:#111827;border-color:#111827;color:#fff}
 body[data-treatment="aesthetics"] .button-call:hover{background:#263044;border-color:#263044}
