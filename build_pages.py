@@ -25,7 +25,7 @@ OFFERS = {
         "faq": [
             ("What can Botox help with?", "Botox can help soften some facial lines and wrinkles for a limited time. At your visit, your provider will talk with you about the areas you want to treat."),
             ("Will I still look like myself?", "That is up to you and your provider. Tell them how much movement you want to keep. Your results may be different from someone else’s."),
-            ("Is there downtime or any risk?", "Many people return to their usual day soon after treatment. You may have redness, swelling, or bruising where you were treated. Botox also has important risks. Your provider will review them with you before treatment."),
+            ("What should I expect after treatment?", "You may have redness, swelling, or bruising where you were treated. Botox also has important risks. Your provider will review the expected aftercare and risks with you before treatment."),
             ("How much does it cost?", "The regular price for 25 units is $300 at $12 per unit. This month’s promotional price is $175, or $7 per unit—a $125 savings. Ask your provider about the cost of any additional units before treatment."),
         ],
     },
@@ -118,7 +118,12 @@ def render(key, d):
 ''',
     }[key]
     hero_details = (
-        f'          <ul class="check-list">{bullets}</ul>\n{price_highlight}'
+        f'''          <ul class="check-list">{bullets}</ul>
+          <div class="hero-actions botox-hero-actions">
+            <a class="button button-primary" href="#lead-form">Claim 25 Units for $175</a>
+            <a class="text-link" href="tel:+13477409508">Call (347) 740-9508</a>
+          </div>
+{price_highlight}'''
         if key == "botox"
         else f'          <p class="intro">{escape(d["intro"])}</p>\n{price_highlight}          <ul class="check-list">{bullets}</ul>\n'
     ).rstrip()
