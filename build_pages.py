@@ -3,9 +3,11 @@
 from html import escape
 from pathlib import Path
 from datetime import date
+from calendar import monthrange
 
 ROOT = Path(__file__).parent
 CURRENT_MONTH = date.today().strftime("%B")
+CURRENT_MONTH_END = monthrange(date.today().year, date.today().month)[1]
 OFFERS = {
     "botox": {
         "file": "index.html",
@@ -33,7 +35,7 @@ OFFERS = {
         "eyebrow": "Shape and definition, on your terms",
         "headline": "Get a <em>Half Syringe of Lip Filler</em> for Just <em>$249</em> This Month!",
         "intro": "Normally $498. This month, get a half syringe of lip filler for $249—that’s 50% off. We focus on natural shape and definition for a refined, balanced look.",
-        "bullets": ["Personalized consultation and treatment plan", "Natural shape and definition—refined, never exaggerated", "Professional injectors and careful technique", "New clients only · Offer ends October 31"],
+        "bullets": ["Personalized consultation and treatment plan", "Natural shape and definition—refined, never exaggerated", "Professional injectors and careful technique", f"New clients only · Offer ends {CURRENT_MONTH} {CURRENT_MONTH_END}"],
         "description": "Lip filler is an injectable treatment used to add fullness or definition to the lips. Your consultation is the time to talk through the look you want, the product your provider recommends, and the benefits and risks.",
         "benefits": [
             ("01", "Bring your inspiration", "Talk about the shape, definition, or volume you have in mind."),
@@ -52,7 +54,7 @@ OFFERS = {
         "name": "Signature Hydrodermabrasion Facial",
         "eyebrow": "Deeply cleansed, polished, and replenished",
         "headline": "Reveal <em>Fresh, Luminous Skin</em> With Hydrodermabrasion Starting at <em>$99</em>",
-        "intro": "This October, refresh your skin with a signature hydrodermabrasion facial starting at $99—plus a complimentary red light therapy session to support collagen and help maximize your results.",
+        "intro": f"This {CURRENT_MONTH}, refresh your skin with a signature hydrodermabrasion facial starting at $99—plus a complimentary red light therapy session to support collagen and help maximize your results.",
         "bullets": [
             "Deep cleansing, gentle exfoliation, impurity extraction, and hydration infusion",
             "Advanced Nuba skin system with German-crafted diamond tips",
@@ -82,7 +84,7 @@ def render(key, d):
     announcement = {
         "botox": "Botox Special: 25 Units for $175 · Save $125",
         "lip-filler": "Lip Filler Special: Half Syringe for $249 · 50% Off",
-        "hydrodermabrasion": "October Special: Hydrodermabrasion From $99 + Complimentary Red Light Therapy",
+        "hydrodermabrasion": f"{CURRENT_MONTH} Special: Hydrodermabrasion From $99 + Complimentary Red Light Therapy",
     }[key]
     form_name = {
         "botox": "botox-lead",
@@ -108,11 +110,11 @@ def render(key, d):
         "hydrodermabrasion": f'''<section class="treatment-video" aria-label="Hydrodermabrasion treatment video"><video controls autoplay muted loop playsinline preload="metadata"><source src="{asset_prefix}assets/evollon-hydrodermabrasion.mp4" type="video/mp4">Your browser does not support this video.</video></section>''',
     }[key]
     price_highlight = {
-        "botox": '''          <div class="offer-price" aria-label="Botox promotional pricing"><span class="offer-price-was"><small>Normally</small><s>$300</s></span><span class="offer-price-now"><small>October special</small><strong>$175</strong></span><span class="offer-price-save">Save $125 · 25 units at $7 each</span></div>
+        "botox": f'''          <div class="offer-price" aria-label="Botox promotional pricing"><span class="offer-price-was"><small>Normally</small><s>$300</s></span><span class="offer-price-now"><small>{CURRENT_MONTH} special</small><strong>$175</strong></span><span class="offer-price-save">Save $125 · 25 units at $7 each</span></div>
 ''',
-        "lip-filler": '''          <div class="offer-price" aria-label="Lip filler promotional pricing"><span class="offer-price-was"><small>Normally</small><s>$498</s></span><span class="offer-price-now"><small>October special</small><strong>$249</strong></span><span class="offer-price-save">Save 50% · Half syringe</span></div>
+        "lip-filler": f'''          <div class="offer-price" aria-label="Lip filler promotional pricing"><span class="offer-price-was"><small>Normally</small><s>$498</s></span><span class="offer-price-now"><small>{CURRENT_MONTH} special</small><strong>$249</strong></span><span class="offer-price-save">Save 50% · Half syringe</span></div>
 ''',
-        "hydrodermabrasion": '''          <div class="offer-price" aria-label="Hydrodermabrasion promotional pricing"><span class="offer-price-now"><small>October special · Starting at</small><strong>$99</strong></span><span class="offer-price-save">Complimentary red light therapy included</span></div>
+        "hydrodermabrasion": f'''          <div class="offer-price" aria-label="Hydrodermabrasion promotional pricing"><span class="offer-price-now"><small>{CURRENT_MONTH} special · Starting at</small><strong>$99</strong></span><span class="offer-price-save">Complimentary red light therapy included</span></div>
 ''',
     }[key]
     related_section = '''    <section class="other-treatment wrap"><div><div class="eyebrow">EXPLORE MORE AT EVOLLON</div><h2>Looking for another way to refresh your look?</h2></div><a class="button button-outline" href="../aesthetics/">Explore all med spa services</a></section>
