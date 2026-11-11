@@ -218,13 +218,13 @@ body[data-treatment="lip-filler"] .form-title span,
 body[data-treatment="hydrodermabrasion"] .form-title span{max-width:390px;margin:10px auto 0;color:var(--ink);line-height:1.55}
 @media(max-width:700px){body[data-treatment="botox"] .form-card,body[data-treatment="lip-filler"] .form-card,body[data-treatment="hydrodermabrasion"] .form-card{border-radius:13px;box-shadow:0 16px 40px #6f454b22}body[data-treatment="botox"] .form-title,body[data-treatment="lip-filler"] .form-title,body[data-treatment="hydrodermabrasion"] .form-title{font-size:22px;padding-top:7px}}
 
-/* Botox-page conversion refinements */
-body[data-treatment="botox"] .hero-rating{text-decoration:none;width:fit-content;margin-left:auto;margin-right:auto}
-body[data-treatment="botox"] .hero-rating:hover{text-decoration:underline;text-underline-offset:3px}
-body[data-treatment="botox"] .form-title{font-size:22px;padding:2px 0 14px;margin-bottom:18px}
-body[data-treatment="botox"] .form-title span{font-size:12px;line-height:1.45;margin-top:7px}
+/* Promotional-page conversion refinements */
+body[data-treatment="botox"] .hero-rating,body[data-treatment="lip-filler"] .hero-rating,body[data-treatment="hydrodermabrasion"] .hero-rating{text-decoration:none;width:fit-content;margin-left:auto;margin-right:auto}
+body[data-treatment="botox"] .hero-rating:hover,body[data-treatment="lip-filler"] .hero-rating:hover,body[data-treatment="hydrodermabrasion"] .hero-rating:hover{text-decoration:underline;text-underline-offset:3px}
+body[data-treatment="botox"] .form-title,body[data-treatment="lip-filler"] .form-title,body[data-treatment="hydrodermabrasion"] .form-title{font-size:22px;padding:2px 0 14px;margin-bottom:18px}
+body[data-treatment="botox"] .form-title span,body[data-treatment="lip-filler"] .form-title span,body[data-treatment="hydrodermabrasion"] .form-title span{font-size:12px;line-height:1.45;margin-top:7px}
 .provider-trust{display:flex;align-items:flex-start;gap:15px;margin:0 0 18px;padding:18px 20px;border:1px solid #e5c8cc;border-radius:12px;background:#fff8f9;text-align:left}
 .provider-trust-icon{display:grid;place-items:center;flex:0 0 44px;height:44px;border-radius:50%;background:var(--rose-dark);color:#fff;font-size:13px;font-weight:700;letter-spacing:.06em}
 .provider-trust strong{display:block;color:var(--rose-dark);font-size:17px;line-height:1.3}
 .provider-trust p{margin:5px 0 0;color:var(--muted);font-size:13px;line-height:1.55}
-@media(max-width:700px){body[data-treatment="botox"] .form-title{font-size:20px;padding:0 0 12px;margin-bottom:15px}body[data-treatment="botox"] .form-title span{font-size:11px}.provider-trust{padding:15px;gap:12px}.provider-trust-icon{flex-basis:38px;height:38px;font-size:11px}.provider-trust strong{font-size:15px}.provider-trust p{font-size:12px}}
+@media(max-width:700px){body[data-treatment="botox"] .form-title,body[data-treatment="lip-filler"] .form-title,body[data-treatment="hydrodermabrasion"] .form-title{font-size:20px;padding:0 0 12px;margin-bottom:15px}body[data-treatment="botox"] .form-title span,body[data-treatment="lip-filler"] .form-title span,body[data-treatment="hydrodermabrasion"] .form-title span{font-size:11px}.provider-trust{padding:15px;gap:12px}.provider-trust-icon{flex-basis:38px;height:38px;font-size:11px}.provider-trust strong{font-size:15px}.provider-trust p{font-size:12px}}

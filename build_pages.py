@@ -106,14 +106,14 @@ def render(key, d):
         "lip-filler": "Claim Your Half-Syringe Offer",
         "hydrodermabrasion": "Request the $99 Hydrodermabrasion Offer",
     }[key]
-    email_field = "" if key == "botox" else '<label for="email">Email <span class="optional">(optional)</span></label><input id="email" name="email" type="email" autocomplete="email" placeholder="Email">'
+    email_field = ""
     bullets = "\n".join(f"<li>{escape(x)}</li>" for x in d["bullets"])
     benefits = "\n".join(f'<article class="step"><span>{n}</span><h3>{escape(h)}</h3><p>{escape(p)}</p></article>' for n, h, p in d["benefits"])
     faqs = "\n".join(f'<details><summary>{escape(q)}</summary><div class="answer">{escape(a)}</div></details>' for q, a in d["faq"])
     treatment_video = {
         "botox": f'''<section class="treatment-video" aria-label="Botox treatment video"><video controls playsinline preload="none" poster="{asset_prefix}assets/evollon-treatment.webp"><source src="{asset_prefix}assets/evollon-botox.mp4" type="video/mp4">Your browser does not support this video.</video></section>''',
-        "lip-filler": f'''<section class="treatment-video" aria-label="Lip filler treatment video"><video controls autoplay muted loop playsinline preload="metadata"><source src="{asset_prefix}assets/evollon-lip-filler.mp4" type="video/mp4">Your browser does not support this video.</video></section>''',
-        "hydrodermabrasion": f'''<section class="treatment-video" aria-label="Hydrodermabrasion treatment video"><video controls autoplay muted loop playsinline preload="metadata"><source src="{asset_prefix}assets/evollon-hydrodermabrasion.mp4" type="video/mp4">Your browser does not support this video.</video></section>''',
+        "lip-filler": f'''<section class="treatment-video" aria-label="Lip filler treatment video"><video controls playsinline preload="none" poster="{asset_prefix}assets/evollon-treatment.webp"><source src="{asset_prefix}assets/evollon-lip-filler.mp4" type="video/mp4">Your browser does not support this video.</video></section>''',
+        "hydrodermabrasion": f'''<section class="treatment-video" aria-label="Hydrodermabrasion treatment video"><video controls playsinline preload="none" poster="{asset_prefix}assets/evollon-wellness.webp"><source src="{asset_prefix}assets/evollon-hydrodermabrasion.mp4" type="video/mp4">Your browser does not support this video.</video></section>''',
     }[key]
     price_highlight = {
         "botox": f'''          <div class="offer-price" aria-label="Botox promotional pricing"><span class="offer-price-was"><small>Normally</small><s>$300</s></span><span class="offer-price-now"><small>{CURRENT_MONTH} special</small><strong>$175</strong></span><span class="offer-price-save">Save $125 · 25 units at $7 each</span></div>
@@ -129,11 +129,7 @@ def render(key, d):
         "hydrodermabrasion": "Request the $99 Hydrodermabrasion Offer",
     }[key]
     hero_phone = '            <a class="text-link" href="tel:+13477409508">Call (347) 740-9508</a>\n' if key == "botox" else ""
-    hero_rating = (
-        '<a class="hero-rating" href="https://share.google/HnI1fnu7e6fAURrqr" target="_blank" rel="noopener noreferrer" aria-label="Read Evollon’s 5 out of 5 rating from 48 reviews on Google"><span aria-hidden="true">★★★★★</span> <strong>5.0</strong> from 48 Google reviews</a>'
-        if key == "botox"
-        else '<div class="hero-rating" aria-label="5 out of 5 stars from 48 Google reviews"><span aria-hidden="true">★★★★★</span> <strong>5.0</strong> from 48 Google reviews</div>'
-    )
+    hero_rating = '<a class="hero-rating" href="https://share.google/HnI1fnu7e6fAURrqr" target="_blank" rel="noopener noreferrer" aria-label="Read Evollon’s 5 out of 5 rating from 48 reviews on Google"><span aria-hidden="true">★★★★★</span> <strong>5.0</strong> from 48 Google reviews</a>'
     hero_actions = (
         '          <div class="hero-actions promo-hero-actions">\n'
         f'            <a class="button button-primary hero-primary-cta" href="#lead-form">{escape(hero_cta)}</a>\n'
@@ -147,7 +143,7 @@ def render(key, d):
 '''
         if key == "botox"
         else f'''          <p class="intro">{escape(d["intro"])}</p>
-{price_highlight}          <ul class="check-list">{bullets}</ul>
+          <ul class="check-list">{bullets}</ul>
 {hero_actions}
 '''
     ).rstrip()
@@ -160,9 +156,10 @@ def render(key, d):
     }[key]
     default_review_cards = '''<article class="review-card"><div class="review-head"><span class="review-avatar blue">M</span><div><strong>Moon</strong><small>4 reviews · 1 photo</small></div></div><div class="review-meta"><span class="stars" aria-label="5 out of 5 stars">★★★★★</span><span>a week ago</span><b>New</b></div><p>“Nadia did a phenomenal job with my lips. I didn’t feel pain, she has the most gentle hands, and she took her time to explain everything. She is so sweet and welcoming.”</p></article><article class="review-card"><div class="review-head"><span class="review-avatar green">J</span><div><strong>Jose Caba</strong><small>3 reviews</small></div></div><div class="review-meta"><span class="stars" aria-label="5 out of 5 stars">★★★★★</span><span>3 weeks ago</span><b>New</b></div><p>“Beautiful experience for my mother on her birthday for Botox treatment. Nadia was amazing, and my mom left very happy. Highly recommended!”</p></article><article class="review-card"><div class="review-head"><span class="review-avatar blue">S</span><div><strong>Stella Mullayev</strong><small>10 reviews</small></div></div><div class="review-meta"><span class="stars" aria-label="5 out of 5 stars">★★★★★</span><span>2 months ago</span></div><p>“Nadia was wonderful. She made me feel comfortable from the start, answered all of my questions, and explained everything thoroughly. Her professionalism and genuine care really stood out.”</p></article>'''
     botox_review_cards = '''<article class="review-card"><div class="review-head"><span class="review-avatar green">J</span><div><strong>Jose Caba</strong><small>3 reviews</small></div></div><div class="review-meta"><span class="stars" aria-label="5 out of 5 stars">★★★★★</span><span>3 weeks ago</span><b>New</b></div><p>“Beautiful experience for my mother on her birthday for Botox treatment. Nadia was amazing, and my mom left very happy. Highly recommended!”</p></article><article class="review-card"><div class="review-head"><span class="review-avatar blue">S</span><div><strong>Stella Mullayev</strong><small>10 reviews</small></div></div><div class="review-meta"><span class="stars" aria-label="5 out of 5 stars">★★★★★</span><span>2 months ago</span></div><p>“Nadia was wonderful. She made me feel comfortable from the start, answered all of my questions, and explained everything thoroughly. Her professionalism and genuine care really stood out.”</p></article><article class="review-card"><div class="review-head"><span class="review-avatar blue">M</span><div><strong>Moon</strong><small>4 reviews · 1 photo</small></div></div><div class="review-meta"><span class="stars" aria-label="5 out of 5 stars">★★★★★</span><span>a week ago</span><b>New</b></div><p>“Nadia did a phenomenal job with my lips. I didn’t feel pain, she has the most gentle hands, and she took her time to explain everything. She is so sweet and welcoming.”</p></article>'''
+    lip_review_cards = '''<article class="review-card"><div class="review-head"><span class="review-avatar blue">M</span><div><strong>Moon</strong><small>4 reviews · 1 photo</small></div></div><div class="review-meta"><span class="stars" aria-label="5 out of 5 stars">★★★★★</span><span>a week ago</span><b>New</b></div><p>“Nadia did a phenomenal job with my lips. I didn’t feel pain, she has the most gentle hands, and she took her time to explain everything. She is so sweet and welcoming.”</p></article><article class="review-card"><div class="review-head"><span class="review-avatar blue">S</span><div><strong>Stella Mullayev</strong><small>10 reviews</small></div></div><div class="review-meta"><span class="stars" aria-label="5 out of 5 stars">★★★★★</span><span>2 months ago</span></div><p>“Nadia was wonderful. She made me feel comfortable from the start, answered all of my questions, and explained everything thoroughly. Her professionalism and genuine care really stood out.”</p></article>'''
     hydro_review_card = '''<article class="review-card"><div class="review-head"><span class="review-avatar blue">S</span><div><strong>Stella Mullayev</strong><small>10 reviews</small></div></div><div class="review-meta"><span class="stars" aria-label="5 out of 5 stars">★★★★★</span><span>2 months ago</span></div><p>“Nadia was wonderful. She made me feel comfortable from the start, answered all of my questions, and explained everything thoroughly. Her professionalism and genuine care really stood out.”</p></article>'''
-    review_cards = botox_review_cards if key == "botox" else hydro_review_card if key == "hydrodermabrasion" else default_review_cards
-    provider_trust = '''<div class="provider-trust"><div class="provider-trust-icon" aria-hidden="true">NP</div><div><strong>Board-certified nurse practitioner-led care</strong><p>All treatments at Evollon are performed by experienced, board-certified nurse practitioners. Your visit begins with a complimentary consultation, medical-history review, and personalized treatment plan.</p></div></div>''' if key == "botox" else ""
+    review_cards = botox_review_cards if key == "botox" else lip_review_cards if key == "lip-filler" else hydro_review_card
+    provider_trust = '''<div class="provider-trust"><div class="provider-trust-icon" aria-hidden="true">NP</div><div><strong>Board-certified nurse practitioner-led care</strong><p>All treatments at Evollon are performed by experienced, board-certified nurse practitioners. Your visit begins with a complimentary consultation, medical-history review, and personalized treatment plan.</p></div></div>'''
     return f'''<!doctype html>
 <html lang="en">
 <head>
