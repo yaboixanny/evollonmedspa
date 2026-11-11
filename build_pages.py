@@ -14,8 +14,8 @@ OFFERS = {
         "name": "Botox",
         "eyebrow": "A more rested look, still entirely you",
         "headline": "Get <em>25 units of Botox</em> for just <em>$175</em>.",
-        "intro": "Normally $300 at $12 per unit. This month, get 25 units for $175—just $7 per unit and a $125 savings. The package also includes a personalized treatment plan with our specialist.",
-        "bullets": ["Personalized consultation and treatment plan", "Designed to soften fine lines, wrinkles, and expression lines", "No downtime, non-invasive treatment, and no surgery", "Convenient Forest Hills, Queens location"],
+        "intro": "",
+        "bullets": ["25 units for $175 — normally $300", "Just $7 per unit instead of $12", "Personalized treatment plan included", "Limited November availability"],
         "description": "Botox is an injectable treatment that temporarily relaxes certain facial muscles. During your consultation, you can discuss the areas that concern you, your health history, and whether treatment is appropriate for you.",
         "benefits": [
             ("01", "Start with a conversation", "Share the expressions and lines you would like to discuss."),
@@ -117,6 +117,11 @@ def render(key, d):
         "hydrodermabrasion": f'''          <div class="offer-price" aria-label="Hydrodermabrasion promotional pricing"><span class="offer-price-now"><small>{CURRENT_MONTH} special · Starting at</small><strong>$99</strong></span><span class="offer-price-save">Complimentary red light therapy included</span></div>
 ''',
     }[key]
+    hero_details = (
+        f'          <ul class="check-list">{bullets}</ul>\n{price_highlight}'
+        if key == "botox"
+        else f'          <p class="intro">{escape(d["intro"])}</p>\n{price_highlight}          <ul class="check-list">{bullets}</ul>\n'
+    ).rstrip()
     related_section = '''    <section class="other-treatment wrap"><div><div class="eyebrow">EXPLORE MORE AT EVOLLON</div><h2>Looking for another way to refresh your look?</h2></div><a class="button button-outline" href="../aesthetics/">Explore all med spa services</a></section>
 ''' if key == "hydrodermabrasion" else ""
     sticky_offer = {
@@ -179,8 +184,7 @@ def render(key, d):
         <div class="hero-copy">
           <div class="eyebrow"><span class="line"></span> {escape(d['eyebrow'])}</div>
           <h1>{d['headline']}</h1>
-          <p class="intro">{escape(d['intro'])}</p>
-{price_highlight}          <ul class="check-list">{bullets}</ul>
+{hero_details}
         </div>
       </div>
     </section>
