@@ -29,6 +29,15 @@
     body.ads-aesthetics .aesthetics-hero .button-call:hover { background: #d94763; border-color: #d94763; }
     body.ads-aesthetics .form-card select { width: 100%; height: 57px; padding: 0 14px; border: 1px solid #f7fafc; border-radius: 5px; background: #f7fafc; color: var(--ink); font: inherit; }
     body.ads-aesthetics .form-card select:focus { outline: 2px solid var(--rose-dark); outline-offset: 2px; }
+    body.ads-aesthetics .services-cta { grid-column: 1 / -1; padding: 28px 20px; text-align: center; background: #f7e8e9; border-radius: 14px; }
+    body.ads-aesthetics .services-cta h3 { margin: 0; font-size: 23px; }
+    body.ads-aesthetics .services-cta p { margin: 8px 0 18px; color: var(--muted); }
+    body.ads-aesthetics .faq-section { padding-top: 80px; padding-bottom: 90px; }
+    body.ads-aesthetics .faq-list { margin-top: 42px; }
+    body.ads-aesthetics .faq-list summary { padding-top: 24px; padding-bottom: 24px; }
+    body.ads-aesthetics .visit-section { padding: 90px 20px; }
+    body.ads-aesthetics .visit-section .map-frame { height: 390px; }
+    @media (max-width: 700px) { body.ads-aesthetics .faq-section { padding-top: 60px; padding-bottom: 65px; } body.ads-aesthetics .visit-section { padding: 60px 20px; } body.ads-aesthetics .visit-section .map-frame { height: 300px; } }
     body.ads-aesthetics[data-treatment="aesthetics"] .trust-section { order: 1; }
     body.ads-aesthetics[data-treatment="aesthetics"] .evollon-gallery { order: 2; padding-top: clamp(24px, 4vw, 48px); }
     body.ads-aesthetics[data-treatment="aesthetics"] .content-section { order: 3; }
@@ -235,6 +244,7 @@ I’m so happy I found Nadia, and I absolutely plan on continuing my skin journe
           <article class="service-card"><h3>PRP &amp; PRFM treatments</h3><p>Learn about regenerative treatments that use a preparation from your own blood.</p></article>
           <article class="service-card"><h3>Microneedling</h3><p>Discuss professional treatment for the appearance of texture and overall skin quality.</p></article>
           <article class="service-card"><h3>Signature hydrodermabrasion facial</h3><p>Deeply cleanse, gently exfoliate, extract impurities, and replenish hydration for a fresh, luminous finish.</p></article>
+          <div class="services-cta"><h3>Ready to talk about your goals?</h3><p>Tell us what you’re interested in and we’ll help you explore your options.</p><a class="button button-primary" href="#lead-form">Book a Consultation</a></div>
           <article class="service-card"><h3>Professional chemical peels</h3><p>Explore peel options selected for your skin, concerns, and desired recovery time.</p></article>
           <article class="service-card"><h3>Injectable dissolving treatment</h3><p>Ask whether an enzyme-based dissolving treatment may be appropriate for existing filler.</p></article>
           <article class="service-card"><h3>Skin-rejuvenation injectables</h3><p>Discuss injectable treatments focused on skin quality, texture, and appearance.</p></article>
@@ -245,18 +255,20 @@ I’m so happy I found Nadia, and I absolutely plan on continuing my skin journe
       </div>
     </section>
     <section class="faq-section wrap">
-      <div class="section-heading"><div class="eyebrow">GOOD TO KNOW</div><h2>Med spa questions, <em>answered.</em></h2></div>
+      <div class="section-heading"><div class="eyebrow">GOOD TO KNOW</div><h2>Your Med Spa Questions <em>Answered</em></h2></div>
       <div class="faq-list">
         <details><summary>What services does your med spa offer?</summary><div class="answer">Evollon offers injectable and skin-rejuvenation services, including dermal fillers, wrinkle-relaxing injectables, collagen-stimulating injectables, PRP and PRFM treatments, microneedling, professional chemical peels, skin boosters, excessive-sweating treatment, and skin tag care. Availability and suitability are confirmed during consultation.</div></details>
         <details><summary>How do I know which treatment is right for me?</summary><div class="answer">The right option depends on your goals, health history, treatment area, preferences, and your provider’s assessment. A consultation gives you time to compare appropriate options without assuming that one treatment fits everyone.</div></details>
         <details><summary>What should I expect before treatment?</summary><div class="answer">Your provider will discuss the treatment process, expected recovery, possible side effects, important risks, and aftercare. Share your medical history, medications, allergies, and previous aesthetic treatments before deciding.</div></details>
+        <details><summary>Do I need to know which treatment I want?</summary><div class="answer">No. Share your goals during your consultation and your provider can discuss options that may be appropriate for you.</div></details>
+        <details><summary>How much will my treatment cost?</summary><div class="answer">Cost depends on the service and your individual treatment plan. Ask your provider about pricing during your consultation before deciding.</div></details>
+        <details><summary>Is there downtime after treatment?</summary><div class="answer">Recovery varies by treatment and by person. Your provider will explain expected downtime and aftercare for the options you discuss.</div></details>
         <details><summary>Where is Evollon Med Spa located?</summary><div class="answer">Evollon Med Spa &amp; Wellness is located at 105-09 Metropolitan Ave, Suite 2, in Forest Hills, Queens, New York 11375.</div></details>
       </div>
     </section>
 
     <section class="visit-section"><div class="wrap visit-grid"><div><div class="eyebrow">COME SEE US</div><h2>Your Forest Hills <em>med spa.</em></h2><p>Evollon Med Spa &amp; Wellness<br>105-09 Metropolitan Ave, Ste 2<br>Forest Hills, NY 11375</p></div><div class="map-frame"><iframe title="Map to Evollon Med Spa in Forest Hills" src="https://www.google.com/maps?q=105-09%20Metropolitan%20Ave%20Ste%202%2C%20Forest%20Hills%2C%20NY%2011375&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div></div></section>
 
-    <section class="other-treatment wrap"><div><div class="eyebrow">RELATED SERVICE</div><h2>Interested in enhancing lip shape or definition?</h2></div><a class="button button-outline" href="../lip-filler.html">Explore the lip filler offer</a></section>
   </main>
 
   <footer><div class="wrap footer-inner"><div><span class="wordmark">EVOLLON <small>MED SPA &amp; WELLNESS</small></span><p>105-09 Metropolitan Ave, Ste 2, Forest Hills, NY 11375<br><a href="tel:+13477409508" onclick="gtag('event','conversion',{'send_to':'AW-18426796196/Zl9KCL3qyaIdEKSxytJE'})">(347) 740-9508</a> · <a href="mailto:info@evollon.com">info@evollon.com</a></p></div></div><div class="wrap footer-bottom"><a href="https://evollon.com/privacy-policy/" target="_blank" rel="noopener noreferrer">Privacy Policy</a><br>© Evollon Med Spa &amp; Wellness. Treatment suitability and results vary. Consultation information does not replace medical advice.</div></footer>
