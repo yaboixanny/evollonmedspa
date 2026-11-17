@@ -1,0 +1,75 @@
+:root {
+  --ink: #302226;
+  --muted: #605057;
+  --accent: #8b3c52;
+  --paper: #fcf7f3;
+  --line: #e8d8db;
+  font-family: "DM Sans", system-ui, sans-serif;
+  color: var(--ink);
+  background: var(--paper);
+}
+* { box-sizing: border-box; }
+body { margin: 0; line-height: 1.55; }
+a { color: var(--accent); }
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+.wrap { width: min(1120px, calc(100% - 48px)); margin-inline: auto; }
+.masthead { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding-block: 14px; }
+.brand { font: 600 29px/1 "Playfair Display", Georgia, serif; }
+.brand small { display: block; margin-top: 6px; font: 700 9px/1.2 "DM Sans", sans-serif; letter-spacing: .12em; }
+.phone { font-weight: 700; text-decoration: none; border: 1px solid var(--line); border-radius: 30px; padding: 9px 15px; white-space: nowrap; }
+.hero {
+  background: #f2e6df url("../assets/aesthetics-ny-med-spa.webp") center / cover;
+  background-image: linear-gradient(90deg, #fcf5f0f5, #fcf5f0cf 55%, #fcf5f078), url("../assets/aesthetics-ny-med-spa.webp");
+  padding-block: clamp(38px, 7vw, 96px);
+}
+.split { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); align-items: center; gap: clamp(24px, 6vw, 82px); }
+.eyebrow { margin: 0 0 12px; color: var(--accent); text-transform: uppercase; font-size: .75rem; letter-spacing: .16em; font-weight: 700; }
+h1, h2 { font-family: "Playfair Display", Georgia, serif; font-weight: 600; line-height: 1.12; margin: 0; text-wrap: balance; }
+h1 { font-size: clamp(2.55rem, 5.7vw, 5rem); }
+h2 { font-size: clamp(1.9rem, 3vw, 3rem); }
+.intro { max-width: 43ch; font-size: clamp(1rem, 1.6vw, 1.25rem); }
+.rating { display: inline-flex; flex-wrap: wrap; align-items: center; gap: 6px; padding: 8px 12px; border-radius: 8px; background: #fff9; color: var(--ink); text-decoration: none; font-size: .875rem; }
+.stars { color: #87520a; letter-spacing: .08em; }
+.form { background: #fff; border: 1px solid var(--line); border-radius: 20px; padding: clamp(20px, 3vw, 36px); box-shadow: 0 20px 48px #58384821; scroll-margin-top: 14px; }
+.form h2 { font-size: clamp(1.6rem, 2.4vw, 2.15rem); }
+.form p, .section p, .approach p { color: var(--muted); }
+.form label { display: block; font-weight: 700; font-size: .875rem; margin: 13px 0 5px; }
+.form input, .form select { width: 100%; min-height: 46px; border: 1px solid #b9a7af; border-radius: 7px; color: var(--ink); background: #fff; padding: 9px 12px; font: inherit; }
+.button { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 10px 20px; border: 0; border-radius: 8px; background: var(--accent); color: #fff; font: inherit; font-weight: 700; text-decoration: none; cursor: pointer; }
+.button:hover { background: #6f2b3e; }
+.button:disabled { opacity: .7; cursor: wait; }
+.form .button { width: 100%; margin-top: 18px; }
+#form-result { margin-top: 12px; }
+.section { padding-block: clamp(40px, 7vw, 80px); }
+.review-grid, .service-grid { display: grid; gap: 14px; margin-top: 24px; }
+.review-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.service-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.review-grid figure, .service-grid article { margin: 0; padding: 20px; border: 1px solid var(--line); border-radius: 14px; background: #fff; }
+blockquote { margin: 8px 0 12px; }
+figcaption { font-size: .875rem; font-weight: 700; }
+.service-grid h3, .service-grid p { margin: 0; }
+.service-grid p { margin-top: 6px; }
+.approach, .faq { background: #f4e8e8; }
+.approach { padding-block: clamp(36px, 6vw, 72px); }
+.approach img { display: block; width: 100%; height: auto; border-radius: 16px; }
+.faq details { border-bottom: 1px solid #cdb8bf; }
+.faq h2 { margin-bottom: 16px; }
+.faq summary { padding: 14px 0; cursor: pointer; font-weight: 700; }
+footer { background: #302226; color: #fff; }
+footer .masthead { padding-block: 25px; }
+footer a { color: inherit; }
+address { font-style: normal; }
+dialog { width: min(480px, calc(100% - 32px)); border: 0; border-radius: 16px; padding: 26px; color: var(--ink); }
+dialog::backdrop { background: #302226a0; }
+@media (max-width: 800px) {
+  .wrap { width: calc(100% - 32px); }
+  .split, .review-grid { grid-template-columns: 1fr; }
+  .service-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .hero { background-position: 61% center; }
+  .approach img { max-width: 520px; }
+}
+@media (max-width: 480px) {
+  .phone { font-size: .8rem; padding-inline: 10px; }
+  .service-grid { grid-template-columns: 1fr; }
+  footer .masthead { align-items: flex-start; flex-direction: column; }
+}
