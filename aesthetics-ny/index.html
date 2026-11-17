@@ -100,6 +100,14 @@
     .review-carousel:hover .review-carousel-track, .review-carousel:focus-within .review-carousel-track { animation-play-state: paused; }
     @keyframes review-slide { to { transform: translateX(-50%); } }
     @media (max-width: 700px) { .review-featured { grid-template-columns: 1fr; } }
+    @media (max-width: 700px) {
+      body.ads-aesthetics .aesthetics-hero .button-call { display: flex; justify-content: center; align-items: center; gap: 8px; }
+      body.ads-aesthetics .aesthetics-hero .phone-icon { margin: 0; flex: 0 0 auto; }
+      body.ads-aesthetics .trust-wrap, body.ads-aesthetics .review-wall, .review-featured, .review-carousel { min-width: 0; max-width: 100%; }
+      .review-carousel { width: 100%; }
+      body.ads-aesthetics .review-card p { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 5; overflow: hidden; overflow-wrap: anywhere; }
+      body.ads-aesthetics .review-card { min-width: 0; }
+    }
     @media (prefers-reduced-motion: reduce) { .review-carousel { overflow-x: auto; } .review-carousel-track { animation: none; } .review-carousel-group[aria-hidden="true"] { display: none; } }
     @media (min-width: 701px) {
       body.ads-aesthetics .aesthetics-hero .button-call { min-height: 62px; padding: 16px 34px; font-size: 15px; }
