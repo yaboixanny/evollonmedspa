@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="noindex">
-  <meta name="theme-color" content="#fcf7f3">
+  <meta name="theme-color" content="#202720">
   <meta name="description" content="Meet with Evollon Med Spa in Forest Hills, Queens to discuss Botox, lip filler, facials, and personalized skin care.">
   <title>Med Spa Consultations in Forest Hills, Queens | Evollon</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -54,22 +54,31 @@
   </header>
   <main>
     <section class="hero">
-      <div class="wrap split">
+      <img class="hero-image" src="../assets/evollon-wellness.webp" alt="A provider attending to a client in an Evollon treatment room" width="1000" height="571" fetchpriority="high">
+      <div class="wrap hero-inner">
         <div class="hero-copy">
           <p class="eyebrow">Med spa in Forest Hills, Queens</p>
-          <h1>Aesthetic care that starts with listening.</h1>
-          <p class="intro">Curious about Botox, lip filler, or a facial? Tell us what you have in mind. We’ll talk through your options and help you decide what feels right for you.</p>
+          <h1>Botox, lip filler &amp; facials in <em>Forest Hills.</em></h1>
+          <p class="intro">Bring your questions. We’ll help you understand your options, what each treatment involves, and what to expect before you decide.</p>
+          <a class="button hero-button" href="#lead-form">Request a consultation <span aria-hidden="true">↓</span></a>
           <a class="rating" href="#reviews"><span class="stars" aria-hidden="true">★★★★★</span> <strong>5.0 on Google</strong> <span>· 57 reviews</span></a>
         </div>
-        <form class="form" id="lead-form" name="aesthetics-ny-22t-lead" method="POST" data-netlify="true" aria-labelledby="form-title">
+      </div>
+    </section>
+    <section class="booking">
+      <form class="wrap form" id="lead-form" name="aesthetics-ny-22t-lead" method="POST" data-netlify="true" aria-labelledby="form-title">
           <input type="hidden" name="form-name" value="aesthetics-ny-22t-lead">
           <input type="hidden" name="treatment" value="Med Spa Aesthetics Consultation">
-          <h2 id="form-title">Let’s talk about your goals.</h2>
-          <p>Leave your number and our team will call to help you plan a consultation.</p>
+          <div class="form-intro"><h2 id="form-title">Let’s find a time to talk.</h2>
+          <p>Our team will call to arrange your consultation.</p></div>
+          <div class="fields">
+          <div>
           <label for="name">Full name</label>
           <input id="name" name="name" autocomplete="name" required>
+          </div><div>
           <label for="phone">Phone number</label>
           <input id="phone" name="phone" type="tel" autocomplete="tel" required>
+          </div><div>
           <label for="interest">What are you interested in?</label>
           <select id="interest" name="service-interest" required>
             <option value="" selected disabled>Select a service</option>
@@ -77,25 +86,26 @@
             <option>Botox</option>
             <option>Lip fillers</option>
             <option>Hydrodermabrasion facials</option>
-            <option>Other</option>
+            <option value="Other">Other or not sure</option>
           </select>
-          <button class="button" type="submit">Request a consultation</button>
+          </div>
+          <button class="button" type="submit">Request a callback</button>
+          </div>
           <div id="form-result" role="alert" hidden></div>
-        </form>
-      </div>
+      </form>
     </section>
     <section class="wrap section" id="reviews">
       <p class="eyebrow">Google reviews</p>
       <h2>Why clients choose Evollon</h2>
       <div class="review-grid">
+        <figure class="featured-review"><span class="stars" aria-label="5 out of 5 stars">★★★★★</span><blockquote>“She takes the time to explain everything, answers all my questions, and genuinely makes you feel cared for.”</blockquote><figcaption>Jen Mingov · Google review</figcaption></figure>
         <figure><span class="stars" aria-label="5 out of 5 stars">★★★★★</span><blockquote>“She explained my skin needs in detail and asked all my skin goals.”</blockquote><figcaption>Mariya Siyanova</figcaption></figure>
         <figure><span class="stars" aria-label="5 out of 5 stars">★★★★★</span><blockquote>“She was super patient and reassuring and even followed up with me after.”</blockquote><figcaption>Leah Yusupov</figcaption></figure>
-        <figure><span class="stars" aria-label="5 out of 5 stars">★★★★★</span><blockquote>“She takes the time to explain everything, answers all my questions, and genuinely makes you feel cared for.”</blockquote><figcaption>Jen Mingov</figcaption></figure>
       </div>
     </section>
     <section class="approach">
       <div class="wrap split">
-        <img src="../assets/evollon-wellness.webp" alt="An Evollon provider attending to a client in a treatment room" width="1100" height="629" loading="lazy">
+        <img src="../assets/evollon-treatment.webp" alt="A provider working with a client at Evollon" width="1100" height="629" loading="lazy">
         <div>
           <h2>What happens at your consultation?</h2>
           <p>We’ll listen to what you’d like to address, review your history, and explain which options may suit you. You’ll have time to ask about cost, expected results, risks, and recovery before deciding how to proceed.</p>
@@ -115,9 +125,10 @@
     <section class="faq">
       <div class="wrap section">
         <h2>Before you visit</h2>
-        <details><summary>Do I need to choose a treatment first?</summary><p>You can select “Other” when you request your consultation. Your provider can walk you through suitable options based on your goals.</p></details>
+        <details><summary>Do I need to choose a treatment first?</summary><p>Select “Other or not sure” when you request your consultation. Your provider can walk you through options based on your goals.</p></details>
         <details><summary>How much will treatment cost?</summary><p>Cost depends on the treatment and plan you choose. Ask about pricing during your consultation before deciding.</p></details>
         <details><summary>Where is Evollon located?</summary><p>105-09 Metropolitan Ave, Suite 2, Forest Hills, NY 11375.</p></details>
+        <a class="button faq-action" href="#lead-form">Request a consultation</a>
       </div>
     </section>
   </main>
