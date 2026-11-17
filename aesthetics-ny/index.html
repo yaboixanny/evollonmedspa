@@ -32,6 +32,10 @@
     body.ads-aesthetics .services-cta { grid-column: 1 / -1; padding: 28px 20px; text-align: center; background: #f7e8e9; border-radius: 14px; }
     body.ads-aesthetics .services-cta h3 { margin: 0; font-size: 23px; }
     body.ads-aesthetics .services-cta p { margin: 8px 0 18px; color: var(--muted); }
+    body.ads-aesthetics .services-cta .button { background: var(--rose-dark); color: #fff; }
+    .floating-consult { position: fixed; right: 20px; bottom: 20px; z-index: 30; padding: 14px 22px; border-radius: 999px; background: var(--rose-dark); color: #fff; text-decoration: none; font-weight: 700; box-shadow: 0 8px 24px #4b2b2738; }
+    .floating-consult[hidden] { display: none; }
+    .floating-consult:focus-visible { outline: 3px solid #111827; outline-offset: 3px; }
     body.ads-aesthetics .faq-section { padding-top: 80px; padding-bottom: 90px; }
     body.ads-aesthetics .faq-list { margin-top: 42px; }
     body.ads-aesthetics .faq-list summary { padding-top: 24px; padding-bottom: 24px; }
@@ -248,7 +252,7 @@ I’m so happy I found Nadia, and I absolutely plan on continuing my skin journe
           <article class="service-card"><h3>PRP &amp; PRFM treatments</h3><p>Learn about regenerative treatments that use a preparation from your own blood.</p></article>
           <article class="service-card"><h3>Microneedling</h3><p>Discuss professional treatment for the appearance of texture and overall skin quality.</p></article>
           <article class="service-card"><h3>Signature hydrodermabrasion facial</h3><p>Deeply cleanse, gently exfoliate, extract impurities, and replenish hydration for a fresh, luminous finish.</p></article>
-          <div class="services-cta"><h3>Ready to talk about your goals?</h3><p>Tell us what you’re interested in and we’ll help you explore your options.</p><a class="button button-primary" href="#lead-form">Book a Consultation</a></div>
+          <div class="services-cta"><h3>Ready to talk about your goals?</h3><p>Tell us what you’re interested in and we’ll help you explore your options.</p><a class="button button-primary services-consult" href="#lead-form">Book a Consultation</a></div>
           <article class="service-card"><h3>Professional chemical peels</h3><p>Explore peel options selected for your skin, concerns, and desired recovery time.</p></article>
           <article class="service-card"><h3>Injectable dissolving treatment</h3><p>Ask whether an enzyme-based dissolving treatment may be appropriate for existing filler.</p></article>
           <article class="service-card"><h3>Skin-rejuvenation injectables</h3><p>Discuss injectable treatments focused on skin quality, texture, and appearance.</p></article>
@@ -278,5 +282,27 @@ I’m so happy I found Nadia, and I absolutely plan on continuing my skin journe
   <footer><div class="wrap footer-inner"><div><span class="wordmark">EVOLLON <small>MED SPA &amp; WELLNESS</small></span><p>105-09 Metropolitan Ave, Ste 2, Forest Hills, NY 11375<br><a href="tel:+13477409508" onclick="gtag('event','conversion',{'send_to':'AW-18426796196/Zl9KCL3qyaIdEKSxytJE'})">(347) 740-9508</a> · <a href="mailto:info@evollon.com">info@evollon.com</a></p></div></div><div class="wrap footer-bottom"><a href="https://evollon.com/privacy-policy/" target="_blank" rel="noopener noreferrer">Privacy Policy</a><br>© Evollon Med Spa &amp; Wellness. Treatment suitability and results vary. Consultation information does not replace medical advice.</div></footer>
   <dialog class="thanks-dialog" id="thanks-dialog" aria-labelledby="thanks-title" aria-describedby="thanks-message"><h2 id="thanks-title">Thanks—your request has been received.</h2><p id="thanks-message">An Evollon team member will follow up, usually within one business day. For immediate assistance, call <a href="tel:+13477409508" onclick="gtag('event','conversion',{'send_to':'AW-18426796196/Zl9KCL3qyaIdEKSxytJE'})">(347) 740-9508</a>.</p><button class="button button-primary" id="thanks-close" type="button">Close</button></dialog>
   <div class="sticky-cta is-hidden" id="sticky-cta"><a class="sticky-offer" href="#lead-form"><b>Request a Med Spa Consultation</b><small>Personalized options in Forest Hills, Queens</small></a></div>
+  <a class="floating-consult" href="#lead-form" hidden>Book a Consult</a>
+  <script>
+    (() => {
+      const floating = document.querySelector('.floating-consult');
+      const form = document.querySelector('#lead-form');
+      const update = () => {
+        const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+        const bounds = form.getBoundingClientRect();
+        const formVisible = bounds.top < window.innerHeight && bounds.bottom > 0;
+        floating.hidden = scrollable <= 0 || window.scrollY / scrollable < 0.07 || formVisible;
+      };
+      document.querySelector('.services-consult').addEventListener('click', (event) => {
+        if (window.matchMedia('(min-width: 701px)').matches) {
+          event.preventDefault();
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+      });
+      window.addEventListener('scroll', update, { passive: true });
+      window.addEventListener('resize', update);
+      update();
+    })();
+  </script>
 </body>
 </html>
