@@ -19,10 +19,14 @@
     body.ads-aesthetics .aesthetics-hero .eyebrow { display: flex; justify-content: flex-start; }
     body.ads-aesthetics .aesthetics-hero h1 { font-size: clamp(38px, 4.2vw, 60px); margin: 18px 0; }
     body.ads-aesthetics .aesthetics-hero .intro { margin: 0 0 24px; font-size: 17px; line-height: 1.65; font-weight: 400; }
-    body.ads-aesthetics .aesthetics-hero .check-list { max-width: none; margin: 0 0 26px; text-align: left; }
+    body.ads-aesthetics .aesthetics-hero .check-list { max-width: none; margin: 0 0 26px; text-align: left; font-size: clamp(15px, 1.45vw, 20px); }
     body.ads-aesthetics .aesthetics-hero .hero-actions { justify-content: flex-start; }
     body.ads-aesthetics .aesthetics-hero .button { min-width: 0; }
-    body.ads-aesthetics .aesthetics-hero .form-card { width: 100%; margin: 0; }
+    body.ads-aesthetics .aesthetics-hero .form-card { width: 100%; max-width: 470px; margin: 0 auto; padding: 26px; }
+    body.ads-aesthetics .aesthetics-hero .button-call { background: var(--rose-dark); border-color: var(--rose-dark); color: #fff; }
+    body.ads-aesthetics .aesthetics-hero .button-call:hover { background: #d94763; border-color: #d94763; }
+    body.ads-aesthetics .form-card select { width: 100%; height: 57px; padding: 0 14px; border: 1px solid #f7fafc; border-radius: 5px; background: #f7fafc; color: var(--ink); font: inherit; }
+    body.ads-aesthetics .form-card select:focus { outline: 2px solid var(--rose-dark); outline-offset: 2px; }
     body.ads-aesthetics[data-treatment="aesthetics"] .trust-section { order: 1; }
     body.ads-aesthetics[data-treatment="aesthetics"] .evollon-gallery { order: 2; }
     body.ads-aesthetics[data-treatment="aesthetics"] .content-section { order: 3; }
@@ -31,6 +35,8 @@
       body.ads-aesthetics .aesthetics-hero .hero-inner { grid-template-columns: 1fr; gap: 26px; padding: 35px 20px 42px; }
       body.ads-aesthetics .aesthetics-hero h1 { font-size: clamp(34px, 9vw, 45px); }
       body.ads-aesthetics .aesthetics-hero .intro { font-size: 15px; }
+      body.ads-aesthetics .aesthetics-hero .check-list { font-size: 14px; }
+      body.ads-aesthetics .form-card select { height: 51px; }
       body.ads-aesthetics .aesthetics-hero .hero-actions { align-items: stretch; }
     }
   </style>
@@ -78,7 +84,7 @@
         <div class="hero-copy">
           <div class="eyebrow"><span class="line"></span> Personalized aesthetics, thoughtfully planned</div>
           <h1><em>Med Spa Services</em> in Forest Hills, Queens</h1>
-          <p class="intro">Explore personalized injectable and skin-rejuvenation treatments at Evollon Med Spa &amp; Wellness. Start with your goals, learn which options may fit, and make an informed treatment decision.</p>
+          <p class="intro">You deserve to feel confident in your own skin. At Evollon, we take the time to listen, get to know your goals, and help you find a treatment that feels right for you.</p>
           <ul class="check-list">
             <li>Personalized consultation and treatment recommendations</li>
             <li>Injectable options for lines, volume, hydration, and skin quality</li>
@@ -86,24 +92,27 @@
             <li>Convenient Forest Hills, Queens location</li>
           </ul>
           <div class="hero-actions">
-            <a class="button button-primary" href="#lead-form">Request a consultation</a>
-            <a class="button button-call" href="tel:+13477409508" aria-label="Call Evollon at (347) 740-9508" onclick="gtag('event','conversion',{'send_to':'AW-18426796196/Zl9KCL3qyaIdEKSxytJE'})">Call (347) 740-9508</a>
+            <a class="button button-call" href="tel:+13477409508" aria-label="Call Evollon at (347) 740-9508" onclick="gtag('event','conversion',{'send_to':'AW-18426796196/Zl9KCL3qyaIdEKSxytJE'})">Call</a>
           </div>
         </div>
-<form class="form-card" id="lead-form" name="aesthetics-lead" method="POST" data-netlify="true" aria-label="Request a med spa consultation">
-          <input type="hidden" name="form-name" value="aesthetics-lead">
+<form class="form-card" id="lead-form" name="aesthetics-ny-lead" method="POST" data-netlify="true" aria-label="Request a med spa consultation">
+          <input type="hidden" name="form-name" value="aesthetics-ny-lead">
           <input type="hidden" name="treatment" value="Med Spa Aesthetics Consultation">
           <div class="form-title">Request a consultation<span>We'll help you take the next step.</span></div>
           <label for="full-name">Full name <span class="required">*</span></label>
           <input id="full-name" name="name" autocomplete="name" required placeholder="Full name">
-          <label for="email">Email <span class="optional">(optional)</span></label>
-          <input id="email" name="email" type="email" autocomplete="email" placeholder="Email">
           <label for="phone">Phone <span class="required">*</span></label>
           <input id="phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required placeholder="Phone">
-          <label class="consent-option" for="contact-consent"><input id="contact-consent" name="contact-consent" type="checkbox" value="Agreed" required><span>I agree that Evollon may call or text me at the number provided about this request and appointment scheduling. Message and data rates may apply. Reply STOP to opt out. Consent is not a condition of purchase. <span class="required">*</span></span></label>
-          <label class="consent-option" for="marketing-consent"><input id="marketing-consent" name="marketing-consent" type="checkbox" value="Agreed"><span>Yes, I would also like to receive occasional promotional texts and emails from Evollon. This is optional, and I can unsubscribe at any time.</span></label>
+          <label for="service-interest">What service are you interested in? <span class="required">*</span></label>
+          <select id="service-interest" name="service-interest" required>
+            <option value="" selected disabled>Select a service</option>
+            <option>General esthetician services</option>
+            <option>Botox</option>
+            <option>Lip fillers</option>
+            <option>Hydrodermabrasion facials</option>
+            <option>Other</option>
+          </select>
           <button class="button button-primary submit" type="submit">Request my consultation</button>
-          <p class="form-fine">Evollon uses your information to respond to this request. Read the <a href="https://evollon.com/privacy-policy/" target="_blank" rel="noopener noreferrer">Privacy Policy</a> to learn what is collected, how it is used, who may receive it, and how to contact Evollon about your data.</p>
           <div class="form-result" id="form-result" role="alert" hidden></div>
         </form>
       </div>
@@ -182,7 +191,7 @@
   </main>
 
   <footer><div class="wrap footer-inner"><div><span class="wordmark">EVOLLON <small>MED SPA &amp; WELLNESS</small></span><p>105-09 Metropolitan Ave, Ste 2, Forest Hills, NY 11375<br><a href="tel:+13477409508" onclick="gtag('event','conversion',{'send_to':'AW-18426796196/Zl9KCL3qyaIdEKSxytJE'})">(347) 740-9508</a> · <a href="mailto:info@evollon.com">info@evollon.com</a></p></div></div><div class="wrap footer-bottom"><a href="https://evollon.com/privacy-policy/" target="_blank" rel="noopener noreferrer">Privacy Policy</a><br>© Evollon Med Spa &amp; Wellness. Treatment suitability and results vary. Consultation information does not replace medical advice.</div></footer>
-  <dialog class="thanks-dialog" id="thanks-dialog" aria-labelledby="thanks-title" aria-describedby="thanks-message"><h2 id="thanks-title">Thanks—your request has been received.</h2><p id="thanks-message">An Evollon team member will call or text you, usually within one business day. For immediate assistance, call <a href="tel:+13477409508" onclick="gtag('event','conversion',{'send_to':'AW-18426796196/Zl9KCL3qyaIdEKSxytJE'})">(347) 740-9508</a>.</p><button class="button button-primary" id="thanks-close" type="button">Close</button></dialog>
+  <dialog class="thanks-dialog" id="thanks-dialog" aria-labelledby="thanks-title" aria-describedby="thanks-message"><h2 id="thanks-title">Thanks—your request has been received.</h2><p id="thanks-message">An Evollon team member will follow up, usually within one business day. For immediate assistance, call <a href="tel:+13477409508" onclick="gtag('event','conversion',{'send_to':'AW-18426796196/Zl9KCL3qyaIdEKSxytJE'})">(347) 740-9508</a>.</p><button class="button button-primary" id="thanks-close" type="button">Close</button></dialog>
   <div class="sticky-cta is-hidden" id="sticky-cta"><a class="sticky-offer" href="#lead-form"><b>Request a Med Spa Consultation</b><small>Personalized options in Forest Hills, Queens</small></a></div>
 </body>
 </html>
